@@ -1,0 +1,8 @@
+Open program
+Ask user for number of rows
+If it is grater than 0 and smaller than 9
+    Show picked numbers
+    Iteration n times (n=number of rows)
+        Print rows number of "#", then new line
+Else
+    Reask
