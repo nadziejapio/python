@@ -14,7 +14,7 @@ def main():
 # loop
 
     for c in s:
-        if c.isalpha():
+        if isalpha(c):
             let += 1
         if c in space:
             wor += 1
