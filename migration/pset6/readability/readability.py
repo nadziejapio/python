@@ -36,7 +36,7 @@ def main():
     elif x < 1:
         print("Before Grade 1")
     else:
-        print("Grade " +g)
+        print("Grade " + g)
 
 # get input
 
