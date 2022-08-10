@@ -9,11 +9,11 @@ def main():
         sys.exit(1)
 
     people = []
-    with open(sys.argv[1], "r") as csvfile:
-        csvreader = csv.DictReader(csvfile)
-        for row in csvreader:
-            person = row.copy()
-            people.append(person)
+    csvfile = open(sys.argv[1], 'r')
+    csvreader = csv.DictReader(csvfile)
+    for row in csvreader:
+        person = row.copy()
+        people.append(person)
 
 
     dna = str()
