@@ -9,11 +9,12 @@ def main():
         print ("Usage: python dna.py data.csv sequence.txt")
         sys.exit(1)
     # TODO: Read database file into a variable
+    people
     with open(sys.argv[1], 'r') as csvfile:
         csvreader = csv.DictReader(csvfile)
         for raw in csvreader:
-            dict.append()
-    print(dict[1])
+            people.append()
+    print(csvreader['Bob'])
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], 'r') as f:
         dna = f.read()
