@@ -14,7 +14,7 @@ def main():
     print(csvreader[1])
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], 'r') as dnasequence:
-        dnareader = csv.
+        dna = csv.
     # TODO: Find longest match of each STR in DNA sequence
 
     # TODO: Check database for matching profiles
