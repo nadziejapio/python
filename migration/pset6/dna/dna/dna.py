@@ -12,14 +12,14 @@ def main():
     people = dict()
     with open(sys.argv[1], 'r') as csvfile:
         csvreader = csv.DictReader(csvfile)
-        for raw in csvreader:
-            people.update()
-    print(csvreader['Bob'])
+        for row in csvreader:
+            people.update(row)
+    print(people)
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], 'r') as f:
         dna = f.read()
     # TODO: Find longest match of each STR in DNA sequence
-    longest_match()
+    #longest_match()
     # TODO: Check database for matching profiles
 
     return
