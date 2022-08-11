@@ -9,7 +9,7 @@ def main():
         print ("Usage: python dna.py data.csv sequence.txt")
         sys.exit(1)
     # TODO: Read database file into a variable
-    people
+    people = dict()
     with open(sys.argv[1], 'r') as csvfile:
         csvreader = csv.DictReader(csvfile)
         for raw in csvreader:
