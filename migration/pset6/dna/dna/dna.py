@@ -31,7 +31,8 @@ def main():
         for j in range(len(list(people[0]))):
             if j == 0:
                 continue
-            elif sekwencje[j-1] == people[i].values:
+            elif sekwencje[j-1] == people[i].value
+            9:
 
         print(people[1]list(people[0])[1]]) #== sekwencje
 
