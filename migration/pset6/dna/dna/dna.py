@@ -24,8 +24,8 @@ def main():
         if i == 0:
             continue
         else:
-            #longest_match(dna, list(people[0])[i])
-            print(list(people[0])[i])
+            sekwencje.append(longest_match(dna, list(people[0])[i]))
+            print(sekwencje)
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
 
