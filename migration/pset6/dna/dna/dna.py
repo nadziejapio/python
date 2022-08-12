@@ -28,7 +28,7 @@ def main():
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
     for i in range(len(people)):
-        print(people[i]{1}) #== sekwencje
+        print(people[list(people[0])[1]]) #== sekwencje
 
     return
 
