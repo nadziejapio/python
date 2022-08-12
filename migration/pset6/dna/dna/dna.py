@@ -19,6 +19,7 @@ def main():
     with open(sys.argv[2], 'r') as f:
         dna = f.read()
     # TODO: Find longest match of each STR in DNA sequence
+    sekwencje = []
     for i in range(len(list(people[0]))):
         if i == 0:
             continue
