@@ -25,10 +25,10 @@ def main():
             continue
         else:
             sekwencje.append(longest_match(dna, list(people[0])[i]))
-    for row in csvreader:
-        
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
+        for row in csvreader:
+        if row.values
 
     return
 
