@@ -27,10 +27,7 @@ def main():
             sekwencje.append(longest_match(dna, list(people[0])[i]))
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
-    with open(sys.argv[1], 'r') as csvfile:
-        csvreader = csv.DictReader(csvfile)
-        for row in csvreader:
-            print(row)
+    for i in range(len
             #if row.values
 
     return
