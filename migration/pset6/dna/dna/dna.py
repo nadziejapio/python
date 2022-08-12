@@ -23,6 +23,7 @@ def main():
         if i == 0:
             continue
         else:
+            
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
 
