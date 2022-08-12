@@ -28,7 +28,7 @@ def main():
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
         for row in csvreader:
-        if row.values
+            if row.values
 
     return
 
