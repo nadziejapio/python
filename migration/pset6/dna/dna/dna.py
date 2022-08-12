@@ -28,6 +28,8 @@ def main():
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
     for i in range(len(people)):
+        for j in range(len(list(people[0]))):
+            
         print(people[1]list(people[0])[1]]) #== sekwencje
 
     return
