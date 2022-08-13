@@ -6,7 +6,7 @@ def main():
 
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
-        print ("Usage: python dna.py data.csv sequence.txt")
+        print("Usage: python dna.py data.csv sequence.txt")
         sys.exit(1)
     # TODO: Read database file into a variable
     people = []
@@ -14,7 +14,6 @@ def main():
         csvreader = csv.DictReader(csvfile)
         for row in csvreader:
             people.append(row)
-    #print(list(people))
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], 'r') as f:
         dna = f.read()
@@ -25,7 +24,6 @@ def main():
             continue
         else:
             sekwencje.append(longest_match(dna, list(people[0])[i]))
-    #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
     check = 0
     for i in range(len(people)):
