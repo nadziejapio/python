@@ -27,13 +27,15 @@ def main():
             sekwencje.append(longest_match(dna, list(people[0])[i]))
     #longest_match(dna, people[i].values[j)
     # TODO: Check database for matching profiles
+    check = 0
     for i in range(len(people)):
         for j in range(len(list(people[0]))):
             if j == 0:
                 continue
-            elif sekwencje[j-1] == people[i].value
-            9:
-
+            elif sekwencje[j-1] == list(people[i].values())[j]:
+                check =+ 1
+    if check == len(sekwencje):
+        print()
         print(people[1]list(people[0])[1]]) #== sekwencje
 
     return
