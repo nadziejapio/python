@@ -36,8 +36,10 @@ def main():
                 check =+ 1
         if check == len(sekwencje):
             print(list(people[i].values())[0])
-        else
-        print(people[1]list(people[0])[1]]) #== sekwencje
+            return
+        else:
+            check = 0
+    print('No match')
 
     return
 
