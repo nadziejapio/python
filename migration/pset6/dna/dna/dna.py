@@ -33,11 +33,10 @@ def main():
             if j == 0:
                 continue
             elif int(sekwencje[j-1]) == int((list(people[i].values())[j])):
-                check =+ 1
-                print (check)
+                check = check + 1
                 if check == len(sekwencje):
                     print(list(people[i].values())[0])
-                    break
+                    return
         else:
             check = 0
     print('No match')
