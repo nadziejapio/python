@@ -29,7 +29,7 @@ def main():
     # TODO: Check database for matching profiles
     check = 0
     for i in range(len(people)):
-        for j in range(len(list(people[0]))):
+        for j in range(len(list(people[0]))+1):
             if j == 0:
                 continue
             elif sekwencje[j-1] == list(people[i].values())[j]:
