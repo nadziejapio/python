@@ -15,4 +15,5 @@ FROM bakery_security_logs
 WHERE day = 28
 AND month = 7
 AND year = 2021
-AND hour = 10
+AND hour = 10;
+-- plate ent 13FNH73 exit 5P2BI95
