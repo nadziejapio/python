@@ -21,3 +21,7 @@ AND hour = 10;
 SELECT *
 FROM interviews
 WHERE transcript LIKE '%bakery%';
+-- check security footage within 10 mins after theft - who exited
+-- check who was withdrawing money from ATM before the theft - 28.07 morning
+-- check who was calling for less than 1 min, check if tha guy bought ticket
+-- check  what is the earliest flight from Fiftyville 29.07
