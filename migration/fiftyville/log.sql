@@ -19,4 +19,5 @@ AND hour = 10;
 -- plate ent 13FNH73 exit 5P2BI95
 -- check interviews
 SELECT *
-FROM interviews;
+FROM interviews
+WHERE transcript = "%bakery%";
