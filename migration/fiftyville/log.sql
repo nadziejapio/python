@@ -20,4 +20,4 @@ AND hour = 10;
 -- check interviews
 SELECT *
 FROM interviews
-WHERE transcript = "%bakery%";
+WHERE transcript CONTAINS bakery;
