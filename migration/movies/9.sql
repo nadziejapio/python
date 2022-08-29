@@ -1,1 +1,1 @@
-SELECT name FROM people, movies, stars WHERE 
+SELECT name FROM people, movies, stars WHERE movies.id = stars.movies_id AND people.id = stars.person_id AND 
