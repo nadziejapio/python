@@ -20,4 +20,4 @@ AND hour = 10;
 -- check interviews
 SELECT *
 FROM interviews
-WHERE transcript CONTAINS bakery;
+WHERE transcript LIKE '%bakery%';
