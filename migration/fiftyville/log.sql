@@ -9,4 +9,10 @@ WHERE day = 28
 AND month = 7
 AND year = 2021
 AND street = "Humphrey Street";
--- check bakery logs 
+-- check bakery logs around 10:15am
+SELECT *
+FROM bakery_security_logs
+WHERE day = 28
+AND month = 7
+AND year = 2021
+AND hour = 10
