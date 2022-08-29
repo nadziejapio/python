@@ -1,1 +1,1 @@
-SELECT title, rating FROM movies, ratings WHERE ratings.movie_id = movies.id AND year = 2010 AND rating != 0.0 ORDER BY rating DESC WITH TIES ORDER BY title ASC;
+SELECT title, rating FROM movies, ratings WHERE ratings.movie_id = movies.id AND year = 2010 AND rating != 0.0 ORDER BY rating DESC ORDER BY title ASC;
