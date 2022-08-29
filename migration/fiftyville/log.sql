@@ -17,3 +17,6 @@ AND month = 7
 AND year = 2021
 AND hour = 10;
 -- plate ent 13FNH73 exit 5P2BI95
+-- check interviews
+SELECT *
+FROM interviews;
