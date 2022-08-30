@@ -31,5 +31,12 @@ AND hour = 10
 AND minute BETWEEN 15 AND 26
 AND activity LIKE 'exit';
 -- check who was withdrawing money from ATM before the theft - 28.07 morning
+SELECT *
+FROM atm_transactions
+WHERE day = 28
+AND month = 7
+AND year = 2021
+AND atm_location LIKE 'Leggett Street'
+AND transaction_type LIKE 'withdraw';
 -- check who was calling for less than 1 min, check if tha guy bought ticket
 -- check  what is the earliest flight from Fiftyville 29.07
