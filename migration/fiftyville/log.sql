@@ -81,8 +81,8 @@ AND license_plate IN (SELECT license_plate
     AND hour = 10
     AND minute BETWEEN 15 AND 26
     AND activity LIKE 'exit')
-AND atm_transactions.account_number = bank_accounts.account_number
-AND bank_accounts.person_id = people.id
+--AND atm_transactions.account_number = bank_accounts.account_number
+--AND bank_accounts.person_id = people.id
 AND person_id IN (SELECT person_id
     FROM bank_accounts
     WHERE account_number IN
