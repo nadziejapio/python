@@ -28,7 +28,7 @@ WHERE day = 28
 AND month = 7
 AND year = 2021
 AND hour = 10
-AND minute BETWEEN 15 AND 25
+AND minute BETWEEN 15 AND 26
 AND activity LIKE 'exit';
 -- check who was withdrawing money from ATM before the theft - 28.07 morning
 -- check who was calling for less than 1 min, check if tha guy bought ticket
