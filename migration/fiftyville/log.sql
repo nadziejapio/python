@@ -93,3 +93,14 @@ AND person_id IN (SELECT person_id
         AND year = 2021
         AND atm_location LIKE 'Leggett Street'
         AND transaction_type LIKE 'withdraw'));
+
+-- who is accomplice?
+SELECT name
+FROM people
+WHERE phone_number IN (SELECT receiver
+    FROM phone_calls
+    WHERE caller LIKE '%(367) 555-5533%'
+    AND day = 28
+    AND month = 7
+    AND year = 2021
+    AND duration < 60);
