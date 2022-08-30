@@ -46,3 +46,4 @@ AND month = 7
 AND year = 2021
 AND duration < 60;
 -- check  what is the earliest flight from Fiftyville 29.07
+SELECT 
