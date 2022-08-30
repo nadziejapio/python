@@ -83,4 +83,4 @@ AND license_plate IN (SELECT license_plate
     AND activity LIKE 'exit')
 AND atm_transactions.account_number = bank_accounts.account_number
 AND bank_accounts.person_id = people.id
-AND
+AND 
