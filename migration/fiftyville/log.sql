@@ -62,7 +62,7 @@ SELECT *
 FROM passengers
 WHERE flight_id = 36;
 -- who is thief?
-SELECT *
+SELECT name
 FROM people, bank_accounts, atm_transactions
 WHERE phone_number IN (SELECT caller
     FROM phone_calls
