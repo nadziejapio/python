@@ -22,6 +22,14 @@ SELECT *
 FROM interviews
 WHERE transcript LIKE '%bakery%';
 -- check security footage within 10 mins after theft - who exited
+SELECT *
+FROM bakery_security_logs
+WHERE day = 28
+AND month = 7
+AND year = 2021
+AND hour = 10
+AND minute BETWEEN 15, 25
+AND activity LIKE 'exit';
 -- check who was withdrawing money from ATM before the theft - 28.07 morning
 -- check who was calling for less than 1 min, check if tha guy bought ticket
 -- check  what is the earliest flight from Fiftyville 29.07
