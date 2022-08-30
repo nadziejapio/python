@@ -53,7 +53,8 @@ AND day = 29
 AND month = 7
 AND year = 2021
 ORDER BY hour ASC, minute ASC LIMIT 1;
--- what is 4? id 
+-- what is 4? id = 36
 SELECT *
 FROM airports
 WHERE id = 4;
+-- 
