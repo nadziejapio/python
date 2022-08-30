@@ -64,4 +64,10 @@ WHERE flight_id = 36;
 -- who is thief?
 SELECT *
 FROM people
-WHERE phone_number IN
+WHERE phone_number IN (SELECT caller
+    FROM phone_calls
+    WHERE day = 28
+    AND month = 7
+    AND year = 2021
+    AND duration < 60)
+AND 
