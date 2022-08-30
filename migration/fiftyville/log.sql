@@ -63,7 +63,7 @@ FROM passengers
 WHERE flight_id = 36;
 -- who is thief?
 SELECT *
-FROM people
+FROM people, bank accounts, atm_transactions
 WHERE phone_number IN (SELECT caller
     FROM phone_calls
     WHERE day = 28
@@ -81,4 +81,6 @@ AND license_plate IN (SELECT license_plate
     AND hour = 10
     AND minute BETWEEN 15 AND 26
     AND activity LIKE 'exit')
+AND atm_transactions.account_number = bank_accounts.account_number
+AND bank_accounts.person_id = people.id
 AND
