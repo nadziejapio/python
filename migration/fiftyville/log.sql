@@ -53,8 +53,15 @@ AND day = 29
 AND month = 7
 AND year = 2021
 ORDER BY hour ASC, minute ASC LIMIT 1;
--- what is 4? id = 36
+-- what is 4? id = 36 - where did he go?
 SELECT *
 FROM airports
 WHERE id = 4;
--- 
+-- who is flying?
+SELECT *
+FROM passengers
+WHERE flight_id = 36;
+-- who is thief?
+SELECT *
+FROM people
+WHERE phone_number IN
