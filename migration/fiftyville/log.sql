@@ -39,4 +39,10 @@ AND year = 2021
 AND atm_location LIKE 'Leggett Street'
 AND transaction_type LIKE 'withdraw';
 -- check who was calling for less than 1 min, check if tha guy bought ticket
+SELECT *
+FROM phone_calls
+WHERE day = 28
+AND month = 7
+AND year = 2021
+AND duration < 60;
 -- check  what is the earliest flight from Fiftyville 29.07
