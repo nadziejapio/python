@@ -45,7 +45,7 @@ WHERE day = 28
 AND month = 7
 AND year = 2021
 AND duration < 60;
--- check  what is the earliest flight from Fiftyville 29.07
+-- check  what is the earliest flight from Fiftyville 29.07 - 8 fiftyville
 SELECT *
 FROM flights
 WHERE origin_airport_id = 8
@@ -53,3 +53,7 @@ AND day = 29
 AND month = 7
 AND year = 2021
 ORDER BY hour ASC, minute ASC LIMIT 1;
+-- what is 4? id 
+SELECT *
+FROM airports
+WHERE id = 4;
