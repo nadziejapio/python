@@ -22,11 +22,11 @@
             }
             document.querySelector('#check').addEventListener('click', function(){
                 let in = document.querySelector('input');
-                if (input.value === 'Baby dont hurt me') {
-                    input.style.backgroundColor = '#00ff00';
+                if (in.value === 'Baby dont hurt me') {
+                    in.style.backgroundColor = '#00ff00';
                     document.querySelector('#info2').innerHTML = 'Correct!';
                 } else{
-                    input.style.backgroundColor = '#ff0000';
+                    in.style.backgroundColor = '#ff0000';
                     document.querySelector('#info2').innerHTML = 'Incorrect';
                 }
             })
