@@ -10,20 +10,13 @@
         <title>About JPG</title>
     </head>
     <body>
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/index.html">Homepage</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/portfolio.html">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/contact.html">Contact</a>
-        </li>
-      </ul>
+      <div id="nav-placeholder">
+      </div>
+      <script>
+      $(function(){
+        $("#nav-placeholder").load("nav.html");
+      });
+      </script>
       <br>
       <div class="position-absolute start-50 translate-middle back"><h1><br><br> About us </h1></div><br><br><br>
       <div class="accordion container" id="accordionExample">
