@@ -1,7 +1,7 @@
 .back{
     z-index: -9999;
     padding-top: 5rem;
-    padding-bot: 5rem;
+    margin-bot: 5rem;
 }
 
 #nav-placeholder{
