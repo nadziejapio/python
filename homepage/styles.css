@@ -30,3 +30,8 @@ a.nav-link:hover{
 .green{
     background-color: #003344;
 }
+
+.accordion-button{
+    color: #008877;
+    background-color: #dddddd;
+}
