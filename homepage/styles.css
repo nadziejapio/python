@@ -23,8 +23,8 @@
     color: #ffffff;
 }
 
-a.nav-link:hoover{
-    color: #00ffee;
+a.nav-link:hover{
+    color: #004433;
 }
 
 .green{
