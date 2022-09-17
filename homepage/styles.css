@@ -1,5 +1,7 @@
 .back{
     z-index: -9999;
+    padding-top: 5rem;
+    padding-bot: 5rem;
 }
 
 #nav-placeholder{
@@ -31,7 +33,12 @@ a.nav-link:hover{
     background-color: #003344;
 }
 
-.accordion-button{
+.accordion-button:not(.collapsed){
     color: #008877;
     background-color: #dddddd;
+}
+
+.accordion-button{
+    color: #008877;
+    background-color: #fefefe;
 }
