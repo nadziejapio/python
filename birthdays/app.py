@@ -31,6 +31,8 @@ def index():
         month = request.form.get("month")
         day = request.form.get("day")
 
+        db.execute
+
         return redirect("/")
 
     else:
