@@ -132,6 +132,7 @@ def register():
         else:
             passwordhash = werkzeug.security.generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 )
             db.execute("INSERT user INTO users WHERE username = ?, hash = passwordhash", request.form.get("username"))
+        return redirect("/")
 
     else:
         return render_template("register.html")
