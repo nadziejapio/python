@@ -129,7 +129,7 @@ def register():
             return apology("user already exists", 403)
         if request.form.get("password") != request.form.get("confirmation"):
             return apology("passwords don't match", 403)
-        db.execute("INSERT INTO users )
+        db.execute("INSERT INTO users(username, hash) VALUES )
 
     else:
         return render_template("register.html")
