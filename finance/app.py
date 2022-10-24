@@ -131,7 +131,7 @@ def register():
             return apology("user already exists", 403)
         else:
             passwordhash = werkzeug.security.generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 )
-            db.execute("INSERT user INTO users WHERE username = ?, hash = passwordhash", request.form.get("username"))
+            db.execute("INSERT INTO users WHERE username = ?, hash = passwordhash", request.form.get("username"))
         return redirect("/")
 
     else:
