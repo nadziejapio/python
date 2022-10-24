@@ -130,7 +130,8 @@ def register():
         if len(rows) == 1:
             return apology("user already exists", 403)
         else:
-            db.execute("INSERT user INTO users WHERE username = ?, hash = ?", request.form.get("username"), werkzeug.security.generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 ))
+            passwordhash = werkzeug.security.generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 )
+            db.execute("INSERT user INTO users WHERE username = ?, hash = passwordhash", request.form.get("username"))
 
     else:
         return render_template("register.html")
