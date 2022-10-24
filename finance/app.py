@@ -132,6 +132,7 @@ def register():
         else:
             passwordhash = generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 )
             db.execute("INSERT INTO users(username, hash) VALUES (?, passwordhash)", request.form.get("username"))
+            print ("bla")
         return redirect("/")
 
     else:
