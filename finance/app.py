@@ -125,11 +125,12 @@ def register():
         elif not request.form.get("confirmation"):
             return apology("must provide confirmation", 403)
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-        if len(rows) == 1:
-            return apology("user already exists", 403)
         if request.form.get("password") != request.form.get("confirmation"):
             return apology("passwords don't match", 403)
-        db.execute("INSERT INTO users(username, hash) VALUES )
+        if len(rows) == 1:
+            return apology("user already exists", 403)
+        else:
+            db.execute("INSERT INTO users(username, hash) VALUES request.form.get("username"), werkzeug.security.generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8) )
 
     else:
         return render_template("register.html")
