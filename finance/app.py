@@ -130,8 +130,7 @@ def register():
         if len(rows) == 1:
             return apology("user already exists", 403)
         else:
-            passwordhash = generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 )
-            db.execute("INSERT INTO users(username, hash) VALUES (?, passwordhash)", request.form.get("username"))
+            db.execute("INSERT INTO users(username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 ))
             print ("bla")
         return redirect("/")
 
