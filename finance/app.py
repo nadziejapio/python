@@ -118,7 +118,7 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-        if request.form.get("username")==Null or :
+        if request.form.get("username") == Null or  :
             return apology("must provide username", 403)
         elif not request.form.get("password"):
             return apology("must provide password", 403)
