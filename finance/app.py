@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -50,7 +51,26 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+        if lookup(request.form.get("symbol")) == "":
+            return apology("wrong symbol", 403)
+        elif float(request.form.get("shares")) <= 0:
+            return apology("must be positive integer", 403)
+        name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
+        print (name)
+        sym = request.form.get("symbol")
+        baza = lookup(request.form.get("symbol"))
+        cena = baza.get("price")
+        numberofshares = int(request.form.get("shares"))
+        koszt = cena * numberofshares
+        bank = db.execut("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
+        if koszt > :
+            return apology("You cannot afford it", 403)
+        db.execute("INSERT INTO transactions (username, symbol, price, date) VALUES (?, ?, ?, ?)", name, sym, koszt, datetime.now())
+        db.execute("UPDATE users SET cash =  )
+        return redirect("/")
+    else:
+        return render_template("buy.html")
 
 
 @app.route("/history")
