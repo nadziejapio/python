@@ -63,11 +63,11 @@ def buy():
         cena = baza.get("price")
         numberofshares = int(request.form.get("shares"))
         koszt = cena * numberofshares
-        bank = db.execut("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
+        bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
         if koszt > bank:
             return apology("You cannot afford it", 403)
         db.execute("INSERT INTO transactions (username, symbol, price, date) VALUES (?, ?, ?, ?)", name, sym, koszt, datetime.now())
-        db.execute("UPDATE users SET cash = ?", bank - koszt )
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", bank - koszt, )
         return redirect("/")
     else:
         return render_template("buy.html")
