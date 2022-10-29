@@ -60,7 +60,7 @@ def buy():
         print (name)
         sym = request.form.get("symbol")
         print(lookup(request.form.get("symbol")))
-        baza == {lookup(request.form.get("symbol"))}
+        baza = lookup(request.form.get("symbol"))
         cena = baza.get("price")
         numberofshares = int(request.form.get("shares"))
         koszt = cena * numberofshares
