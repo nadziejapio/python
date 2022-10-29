@@ -59,6 +59,7 @@ def buy():
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         print (name)
         sym = request.form.get("symbol")
+        print(lookup(request.form.get("symbol")))
         baza == {lookup(request.form.get("symbol"))}
         cena = baza.get("price")
         numberofshares = int(request.form.get("shares"))
