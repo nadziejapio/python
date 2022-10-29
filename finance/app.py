@@ -67,7 +67,7 @@ def buy():
         if koszt > bank:
             return apology("You cannot afford it", 403)
         db.execute("INSERT INTO transactions (username, symbol, price, date) VALUES (?, ?, ?, ?)", name, sym, koszt, datetime.now())
-        db.execute("UPDATE users SET cash =  )
+        db.execute("UPDATE users SET cash = ?", bank - koszt )
         return redirect("/")
     else:
         return render_template("buy.html")
