@@ -64,7 +64,7 @@ def buy():
         numberofshares = int(request.form.get("shares"))
         koszt = cena * numberofshares
         bank = db.execut("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
-        if koszt > :
+        if koszt > bank:
             return apology("You cannot afford it", 403)
         db.execute("INSERT INTO transactions (username, symbol, price, date) VALUES (?, ?, ?, ?)", name, sym, koszt, datetime.now())
         db.execute("UPDATE users SET cash =  )
