@@ -17,13 +17,14 @@
             </tr>
         </thead>
        <tbody>
-
+            {% for stock in stocks %}
                 <tr>
                     <td class="text-start">{{ symbol }}</td>
                     <td class="text-end">{{ number }}</td>
                     <td class="text-end">{{ price }}</td>
                     <td class="text-end">{{ total }}</td>
                 </tr>
+            {% endfor %}
 
         </tbody>
         <tfoot>
