@@ -45,7 +45,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     db.execute("UPDATE transactions SET pricenow = ? WHERE )
-    stocks = db.execute("SELECT symbol, COUNT(number), username, price, COUNT(price) nazwa FROM transactions GROUP BY symbol WHERE id = ?", session["user_id"])
+    stocks = db.execute("SELECT symbol, COUNT(number), username, price, COUNT(price) nazwa FROM transactions GROUP BY symbol WHERE username = ?", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     return render_template("index.html", stocks=stocks)
 
 
