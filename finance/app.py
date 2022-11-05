@@ -46,7 +46,7 @@ def index():
     """Show portfolio of stocks"""
     stocks = db.execute("SELECT symbol, COUNT(number), username, price, COUNT(price) nazwa FROM transactions GROUP BY symbol WHERE username = ?", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     for stock in stocks:
-        stock.update({"pricenow": lookup(request.form.get("symbol")).get("price")})
+        stock.update({"pricenow": lookup(stock).get("price")})
     return render_template("index.html", stocks=stocks)
 
 
