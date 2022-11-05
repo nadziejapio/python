@@ -44,7 +44,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    stocks = db.execute("SELECT symbol, COUNT(id), username, number FROM transactions GROUP BY symbol WHERE username = ?", session["user_id"])[0].get("username")))
+    stocks = db.execute("SELECT symbol, COUNT(id), username, number FROM transactions GROUP BY symbol WHERE id = ?", session["user_id"])
     return render_template("index.html", stocks=stocks)
 
 
