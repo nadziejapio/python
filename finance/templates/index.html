@@ -19,10 +19,10 @@
        <tbody>
             {% for stock in stocks %}
                 <tr>
-                    <td class="text-start">{{ symbol }}</td>
-                    <td class="text-end">{{ number }}</td>
-                    <td class="text-end">{{ price }}</td>
-                    <td class="text-end">{{ total }}</td>
+                    <td class="text-start">{{ stock.symbol }}</td>
+                    <td class="text-end">{{ stock.number }}</td>
+                    <td class="text-end">{{ stock.price }}</td>
+                    <td class="text-end">{{ stock.total }}</td>
                 </tr>
             {% endfor %}
 
