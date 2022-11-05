@@ -44,7 +44,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    stocks = db.execute("SELECT symbol, COUNT(id), username FROM transactions GROUP BY symbol WHERE username = ?")
+    stocks = db.execute("SELECT symbol, COUNT(id), username, number FROM transactions GROUP BY symbol WHERE username = ?")
     return render_template("index.html", stocks=stocks, symbol=symbol, number=number, price=price, total=total, bank=bank )
 
 
@@ -68,7 +68,7 @@ def buy():
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
         if koszt > bank:
             return apology("You cannot afford it", 403)
-        db.execute("INSERT INTO transactions (username, symbol, price, date) VALUES (?, ?, ?, ?)", name, sym, koszt, datetime.now())
+        db.execute("INSERT INTO transactions (username, symbol, price, date, number) VALUES (?, ?, ?, ?, ?)", name, sym, koszt, datetime.now(), float(request.form.get("shares")))
         db.execute("UPDATE users SET cash = ? WHERE id = ?", bank - koszt, session["user_id"] )
         return redirect("/")
     else:
