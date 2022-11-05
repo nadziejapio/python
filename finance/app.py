@@ -44,8 +44,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    stocks = db.execute("SELECT symbol, COUNT(id), username, number FROM transactions GROUP BY symbol WHERE username = ?")
-    return render_template("index.html", stocks=stocks, symbol=symbol, number=number, price=price, total=total, bank=bank )
+    stocks = db.execute("SELECT symbol, COUNT(id), username, number FROM transactions GROUP BY symbol WHERE username = ?", session["user_id"])[0].get("username")))
+    return render_template("index.html", stocks=stocks)
 
 
 @app.route("/buy", methods=["GET", "POST"])
