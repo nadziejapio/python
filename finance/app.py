@@ -47,8 +47,8 @@ def index():
     stocks = db.execute("SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     for stock in stocks:
         stock.update({"pricenow": lookup(stock['symbol'])['price']})
-        print (stock)
-    return render_template("index.html", stocks=stocks)
+    bank = 
+    return render_template("index.html", stocks=stocks, bank=bank, total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
