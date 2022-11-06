@@ -49,8 +49,8 @@ def index():
     print(stocks)
     for stock in stocks:
         stock.update({"pricenow": lookup(stock['symbol'])['price']})
-        c = c + stock['SUM(price)']
-    print (c)
+        c = c + stock['pricenow']*stock['SUM(number)']
+    total = c
     bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
     return render_template("index.html", stocks=stocks, bank=bank, total = total)
 
