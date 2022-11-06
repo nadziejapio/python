@@ -17,7 +17,7 @@
             </tr>
         </thead>
        <tbody>
-        {% c = 0 %}
+        {{ c = 0 }}
             {% for stock in stocks %}
                 <tr>
                     <td class="text-start">{{ stock.symbol }}</td>
@@ -26,7 +26,7 @@
                     <td class="text-end">{{ stock.pricenow }}</td>
                     <td class="text-end">{{ stock['SUM(number)']*stock.pricenow }}</td>
                 </tr>
-                {% c = c + stock['SUM(number)']*stock.pricenow}
+                {{ c = c + stock['SUM(number)']*stock.pricenow }}
             {% endfor %}
 
         </tbody>
@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">{{ %c% + bank }}</td>
+                <td class="border-0 w-bold text-end">{{ c + bank }}</td>
             </tr>
         </tfoot>
     </table>
