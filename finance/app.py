@@ -179,6 +179,10 @@ def sell():
     if request.method == "POST":
         if request.form.get("symbol") == "":
             return apology("wrong symbol", 403)
-        elif request.form.get("shares") < 
+        elif request.form.get("shares") < db.execute("SELECT SUM(number) FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")):
+            return apology("not enough shares", 403)
+        elif request.form.get("shares") =< 0:
+            return apology("must be positive number", 403)
+        elif reques.form.get("shares") > 
     else:
         return apology("TODO")
