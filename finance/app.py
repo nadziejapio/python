@@ -44,11 +44,15 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    stocks = db.execute("SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+    stocks = db.execute("SELECT symbol, SUM(number), SUM(price) username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+    c = 0
+    print(stocks)
     for stock in stocks:
         stock.update({"pricenow": lookup(stock['symbol'])['price']})
+        c = c + stock['SUM(price)']
+    print (c)
     bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
-    return render_template("index.html", stocks=stocks, bank=bank)
+    return render_template("index.html", stocks=stocks, bank=bank, total = total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
