@@ -186,4 +186,4 @@ def sell():
         elif reques.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")):
             return apology("must be in your wallet", 403)
     else:
-        return apology("TODO")
+        return render_template("sell.html")
