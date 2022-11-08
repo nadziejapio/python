@@ -1,4 +1,4 @@
-import os
+cimport os
 import re
 
 from cs50 import SQL
