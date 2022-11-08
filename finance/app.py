@@ -199,4 +199,5 @@ def sell():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", bank + koszt, session["user_id"] )
         return redirect("/")
     else:
+        stocks = db.execute("SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
         return render_template("sell.html")
