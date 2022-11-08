@@ -169,7 +169,8 @@ def register():
         if len(request.form.get("password")) < 8:
             return apology("password needs to have at least 8 signs", 403)
         elif regex.search(request.form.get("password")) != None:
-
+            return apology("password needs to have at least 1 special sign", 403)
+        elif 
         else:
             db.execute("INSERT INTO users(username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 ))
             print ("bla")
