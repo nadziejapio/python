@@ -185,6 +185,16 @@ def sell():
             return apology("must be positive number", 403)
         elif reques.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")):
             return apology("must be in your wallet", 403)
+        name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
+        print (name)
+        sym = request.form.get("symbol")
+        print(lookup(request.form.get("symbol")))
+        baza = lookup(request.form.get("symbol"))
+        nazwa = lookup(request.form.get("symbol")).get("name")
+        cena = baza.get("price")
+        numberofshares = int(request.form.get("shares"))
+        koszt = cena * numberofshares
+        bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
         db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)", name, sym, koszt, datetime.now(), -float(request.form.get("shares")), nazwa)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", bank + koszt, session["user_id"] )
         return redirect("/")
