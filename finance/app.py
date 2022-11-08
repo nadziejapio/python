@@ -183,7 +183,7 @@ def sell():
             return apology("not enough shares", 403)
         elif request.form.get("shares") <= 0:
             return apology("must be positive number", 403)
-        elif reques.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")):
+        elif request.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")):
             return apology("must be in your wallet", 403)
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         print (name)
