@@ -1,4 +1,5 @@
 import os
+import re
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -166,7 +167,7 @@ def register():
             return apology("user already exists", 403)
         if len(request.form.get("password")) < 8:
             return apology("password needs to have at least 8 signs", 403)
-        elif request.form.get("password") 
+        elif request.form.get("password")
         else:
             db.execute("INSERT INTO users(username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 ))
             print ("bla")
