@@ -189,9 +189,9 @@ def sell():
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         if request.form.get("symbol") == "":
             return apology("wrong symbol", 403)
-        elif request.form.get("shares") > db.execute("SELECT SUM(number) FROM transactions WHERE username = ? AND symbol = ? GROUP BY symbol", name, request.form.get("symbol")):
+        elif int(request.form.get("shares")) > int(db.execute("SELECT SUM(number) FROM transactions WHERE username = ? AND symbol = ? GROUP BY symbol", name, request.form.get("symbol"))[0]).get('SUM(number)'):
             return apology("not enough shares", 403)
-        elif request.form.get("shares") <= 0:
+        elif int(request.form.get("shares")) <= 0:
             return apology("must be positive number", 403)
         elif request.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ? AND symbol = ? GROUP BY symbol", name, request.form.get("symbol")):
             return apology("must be in your wallet", 403)
