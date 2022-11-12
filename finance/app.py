@@ -186,13 +186,14 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
+        user = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")
         if request.form.get("symbol") == "":
             return apology("wrong symbol", 403)
-        elif request.form.get("shares") > db.execute("SELECT SUM(number) FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")):
+        elif request.form.get("shares") > db.execute("SELECT SUM(number) FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", user):
             return apology("not enough shares", 403)
         elif request.form.get("shares") <= 0:
             return apology("must be positive number", 403)
-        elif request.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), request.form.get("symbol")):
+        elif request.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ?, symbol = ? GROUP BY symbol", user):
             return apology("must be in your wallet", 403)
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         print (name)
