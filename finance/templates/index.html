@@ -22,8 +22,8 @@
                     <td class="text-start">{{ stock.symbol }}</td>
                     <td class="text-start">{{ stock.nazwa }}</td>
                     <td class="text-end">{{ stock['SUM(number)'] }}</td>
-                    <td class="text-end">{{ stock.pricenow }}</td>
-                    <td class="text-end">{{ stock['SUM(number)']*stock.pricenow }}</td>
+                    <td class="text-end">{{ stock.pricenow | usd }}</td>
+                    <td class="text-end">{{ stock['SUM(number)']*stock.pricenow | usd }}</td>
                 </tr>
             {% endfor %}
 
@@ -31,11 +31,11 @@
         <tfoot>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
-                <td class="border-0 text-end">{{ bank }}</td>
+                <td class="border-0 text-end">{{ bank | usd }}</td>
             </tr>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">{{ total + bank }}</td>
+                <td class="border-0 w-bold text-end">{{ total + bank | usd}}</td>
             </tr>
         </tfoot>
     </table>
