@@ -63,7 +63,7 @@ def buy():
     if request.method == "POST":
         if lookup(request.form.get("symbol")) == None:
             return apology("wrong symbol", 400)
-        elif not request.form.get("shares").isdigit:
+        elif not request.form.get("shares").isdigit():
             return apology("must be positive integer", 400)
         elif float(request.form.get("shares")).is_integer():
             return apology("must be positive integer", 400)
