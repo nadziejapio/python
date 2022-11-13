@@ -83,7 +83,7 @@ def buy():
         if koszt > bank:
             return apology("You cannot afford it", 400)
         db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)",
-            name, sym, koszt, datetime.now(), float(request.form.get("shares")), nazwa)
+                   name, sym, koszt, datetime.now(), float(request.form.get("shares")), nazwa)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", bank - koszt, session["user_id"])
         return redirect("/")
     else:
@@ -95,7 +95,7 @@ def buy():
 def history():
     """Show history of transactions"""
     stocks = db.execute("SELECT price, date, number, symbol FROM transactions WHERE username = ?",
-         db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+                        db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     return render_template("history.html", stocks=stocks)
 
 
@@ -184,7 +184,7 @@ def register():
          #   return apology("number needed", 400)
         else:
             db.execute("INSERT INTO users(username, hash) VALUES (?, ?)", request.form.get("username"),
-                generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8))
+                       generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8))
         return redirect("/")
 
     else:
@@ -215,7 +215,7 @@ def sell():
         koszt = cena * numberofshares
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
         db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)",
-                name, sym, koszt, datetime.now(), -float(request.form.get("shares")), nazwa)
+                   name, sym, koszt, datetime.now(), -float(request.form.get("shares")), nazwa)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", bank + koszt, session["user_id"])
         return redirect("/")
     else:
