@@ -75,7 +75,7 @@ def buy():
         baza = lookup(request.form.get("symbol"))
         nazwa = lookup(request.form.get("symbol")).get("name")
         cena = baza.get("price")
-        numberofshares = float(request.form.get("shares"))
+        numberofshares = int(request.form.get("shares"))
         koszt = cena * numberofshares
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
         if koszt > bank:
