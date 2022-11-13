@@ -45,7 +45,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    stocks = db.execute("SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+    stocks = db.execute(
+        "SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     c = 0
     print(stocks)
     for stock in stocks:
@@ -53,7 +54,7 @@ def index():
         c = c + stock['pricenow']*stock['SUM(number)']
     total = c
     bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
-    return render_template("index.html", stocks=stocks, bank=bank, total = total)
+    return render_template("index.html", stocks=stocks, bank=bank, total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -71,7 +72,6 @@ def buy():
             return apology("must be positive integer", 400)
 
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
-        print (name)
         sym = request.form.get("symbol")
         print(lookup(request.form.get("symbol")))
         baza = lookup(request.form.get("symbol"))
@@ -82,8 +82,9 @@ def buy():
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
         if koszt > bank:
             return apology("You cannot afford it", 400)
-        db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)", name, sym, koszt, datetime.now(), float(request.form.get("shares")), nazwa)
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", bank - koszt, session["user_id"] )
+        db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)",
+            name, sym, koszt, datetime.now(), float(request.form.get("shares")), nazwa)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", bank - koszt, session["user_id"])
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -93,7 +94,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    stocks = db.execute("SELECT price, date, number, symbol FROM transactions WHERE username = ?", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+    stocks = db.execute("SELECT price, date, number, symbol FROM transactions WHERE username = ?",
+         db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     return render_template("history.html", stocks=stocks)
 
 
@@ -151,7 +153,7 @@ def quote():
     if request.method == "POST":
         list = lookup(request.form.get("symbol"))
         if list != None:
-            return render_template ("quoted.html", list = list )
+            return render_template("quoted.html", list=list)
         else:
             return apology("invalid symbol", 400)
     else:
@@ -174,15 +176,15 @@ def register():
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         if len(rows) == 1:
             return apology("user already exists", 400)
-       #if len(request.form.get("password")) < 8:
+       # if len(request.form.get("password")) < 8:
         #    return apology("password needs to have at least 8 signs", 400)
-        #elif regex.search(request.form.get("password")) != None:
+        # elif regex.search(request.form.get("password")) != None:
          #   return apology("password needs to have at least 1 special sign", 400)
-        #elif not bool(re.search(r'\d', request.form.get("password"))):
+        # elif not bool(re.search(r'\d', request.form.get("password"))):
          #   return apology("number needed", 400)
         else:
-            db.execute("INSERT INTO users(username, hash) VALUES (?, ?)", request.form.get("username"), generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8 ))
-            print ("bla")
+            db.execute("INSERT INTO users(username, hash) VALUES (?, ?)", request.form.get("username"),
+                generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8))
         return redirect("/")
 
     else:
@@ -204,7 +206,6 @@ def sell():
         elif request.form.get("symbol") not in db.execute("SELECT symbol FROM transactions WHERE username = ? AND symbol = ? GROUP BY symbol", name, request.form.get("symbol"))[0]['symbol']:
             return apology("must be in your wallet", 400)
 
-        print (name)
         sym = request.form.get("symbol")
         print(lookup(request.form.get("symbol")))
         baza = lookup(request.form.get("symbol"))
@@ -213,9 +214,11 @@ def sell():
         numberofshares = int(request.form.get("shares"))
         koszt = cena * numberofshares
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
-        db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)", name, sym, koszt, datetime.now(), -float(request.form.get("shares")), nazwa)
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", bank + koszt, session["user_id"] )
+        db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)",
+                name, sym, koszt, datetime.now(), -float(request.form.get("shares")), nazwa)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", bank + koszt, session["user_id"])
         return redirect("/")
     else:
-        stocks = db.execute("SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+        stocks = db.execute(
+            "SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
         return render_template("sell.html", stocks=stocks)
