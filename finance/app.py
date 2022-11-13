@@ -61,7 +61,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        if lookup(request.form.get("symbol")) == "":
+        if lookup(request.form.get("symbol")) == None:
             return apology("wrong symbol", 400)
         elif float(request.form.get("shares")) <= 0:
             return apology("must be positive integer", 400)
