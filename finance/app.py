@@ -63,10 +63,11 @@ def buy():
     if request.method == "POST":
         if lookup(request.form.get("symbol")) == None:
             return apology("wrong symbol", 400)
-        elif float(request.form.get("shares")) <= 0:
-            return apology("must be positive integer", 400)
         elif not float(request.form.get("shares")).is_integer:
             return apology("must be positive integer", 400)
+        elif float(request.form.get("shares")) <= 0:
+            return apology("must be positive integer", 400)
+
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         print (name)
         sym = request.form.get("symbol")
