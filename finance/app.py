@@ -62,9 +62,9 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         if lookup(request.form.get("symbol")) == "":
-            return apology("wrong symbol", 403)
+            return apology("wrong symbol", 400)
         elif float(request.form.get("shares")) <= 0:
-            return apology("must be positive integer", 403)
+            return apology("must be positive integer", 400)
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         print (name)
         sym = request.form.get("symbol")
@@ -76,7 +76,7 @@ def buy():
         koszt = cena * numberofshares
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
         if koszt > bank:
-            return apology("You cannot afford it", 403)
+            return apology("You cannot afford it", 400)
         db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)", name, sym, koszt, datetime.now(), float(request.form.get("shares")), nazwa)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", bank - koszt, session["user_id"] )
         return redirect("/")
