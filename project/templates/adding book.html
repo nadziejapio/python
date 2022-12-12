@@ -10,7 +10,12 @@
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="addbook" name="addbook" placeholder="Title" type="text">
         </div>
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="person" name="person" placeholder="Who rented?" type="int">
+            <select class="form-select mx-auto w-auto" name="person">
+                <option disabled="" selected="">Who rented?</option>
+                {% for person in people %}
+                    <option value="{{ person.symbol }}">{{ stock.symbol }}</option>
+                {% endfor %}
+            </select>
         </div>
         <button class="btn btn-primary" type="submit">Buy</button>
     </form>
