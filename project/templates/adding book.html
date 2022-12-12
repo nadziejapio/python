@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/add" method="post">
+    <form action="/addbook" method="post">
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="addbook" name="addbook" placeholder="Title" type="text">
         </div>
@@ -17,6 +17,6 @@
                 {% endfor %}
             </select>
         </div>
-        <button class="btn btn-primary" type="submit">Add</button>
+        <button class="btn btn-primary" type="submit">Add book</button>
     </form>
 {% endblock %}
