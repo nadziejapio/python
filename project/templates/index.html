@@ -20,25 +20,16 @@
        <tbody>
             {% for book in rents %}
                 <tr>
-                    <td class="text-start">{{ stock.symbol }}</td>
-                    <td class="text-start">{{ stock.nazwa }}</td>
-                    <td class="text-end">{{ stock['SUM(number)'] }}</td>
-                    <td class="text-end">{{ stock.pricenow | usd }}</td>
-                    <td class="text-end">{{ (stock['SUM(number)']*stock.pricenow) | usd}}</td>
+                    <td class="text-start">{{ book.title }}</td>
+                    <td class="text-start">{{ book.name }}</td>
+                    <td class="text-start">{{ book.surname }}</td>
+                    <td class="text-end">{{ book.nick }}</td>
+                    <td class="text-end">{{ book.time }}</td>
+                    <td class="text-end">{{ book.status }}</td>
                 </tr>
             {% endfor %}
 
         </tbody>
-        <tfoot>
-            <tr>
-                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
-                <td class="border-0 text-end">{{ bank | usd }}</td>
-            </tr>
-            <tr>
-                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">{{ (total + bank) | usd }}</td>
-            </tr>
-        </tfoot>
     </table>
 
 {% endblock %}
