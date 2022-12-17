@@ -82,13 +82,9 @@ def addbook():
         titles = db.execute("SELECT title FROM books WHERE ownersID = ?", session["user_id"])
         if request.form.get("title") in titles:
             return render_template("error.html", info="Title already exists", number="400")
-        elif not request.form.get("shares").isdigit():
-            return apology("must be positive integer", 400)
-        elif not float(request.form.get("shares")).is_integer():
-            return apology("must be positive integer", 400)
-        elif int(request.form.get("shares")) <= 0:
-            return apology("must be positive integer", 400)
-
+        if request.form.get("title") == None:
+            return render_template("error.html", info="Must provide the title", number="400")
+        
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         sym = request.form.get("symbol")
         print(lookup(request.form.get("symbol")))
