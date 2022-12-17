@@ -31,7 +31,9 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    books = db.execute("SELECT * FROM book, person WHERE ownersID = ? AND person_id = readerID", session["user_id"])
+    books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
+    for book in books:
+        if book[]
     print(books)
     return render_template("index.html", books=books)
 
