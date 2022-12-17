@@ -42,7 +42,8 @@ def index():
 @app.route("/addperson", methods=["GET", "POST"])
 @login_required
 def addperson():
-    people = db.execute("SELECT nick FROM person")
+    if request.method == "POST":
+        people = db.execute("SELECT nick FROM person")
         if request.form.get("nick") in people:
             return render_template("error.html", info="Nick already used", number="400")
         if request.form.get("name") or request.form.get("surname") or request.form.get("nick") == None:
