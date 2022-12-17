@@ -111,8 +111,10 @@ def find():
 @login_required
 def borrow():
     if request.method == "POST":
-        if request.form.get("title") or request.form.get("nick") == None:
-            return render_template("error.html", info="Provide title and nick!", number="400")
+        if request.form.get("title") == None:
+            return render_template("error.html", info="Provide title!", number="400")
+        elif request.form.get("nick") == None:
+            return render_template("error.html", info="Provide nick!", number="400")
         else:
             db.execute("UPDATE book SET readerID = ?, status = ?, WHERE title = ?", db.execute("SELECT person_id FROM person WHERE nick = ?", request.form.get("nick")), "borrowed", request.form.get("title"))
             return redirect("/")
