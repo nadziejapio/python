@@ -151,10 +151,9 @@ def register():
         return render_template("register.html")
 
 
-@app.route("/sell", methods=["GET", "POST"])
+@app.route("/back", methods=["GET", "POST"])
 @login_required
-def sell():
-    """Sell shares of stock"""
+def back():
     if request.method == "POST":
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
         if request.form.get("symbol") == "":
@@ -181,4 +180,4 @@ def sell():
     else:
         stocks = db.execute(
             "SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
-        return render_template("sell.html", stocks=stocks)
+        return render_template("back.html", stocks=stocks)
