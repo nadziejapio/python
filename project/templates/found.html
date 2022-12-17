@@ -11,9 +11,9 @@
 <form action="/found" method="post">
     <div class="mb-3">
         <select class="form-select mx-auto w-auto" name="title">
-            <option disabled="" selected="">Title</option>
-            {% for book in books %}
-                <option value="{{ book.title }}">{{ book.title }}</option>
+            <option disabled="" selected="">Borrowed</option>
+            {% for guy in person %}
+                <option value="{{ guy.nick }}">{{ guy.name guy.surname }}</option>
             {% endfor %}
         </select>
     </div>
