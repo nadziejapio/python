@@ -166,4 +166,6 @@ def back():
             return redirect("/")
         return redirect("/")
     else:
-        return render_template("back.html", stocks=stocks)
+        books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
+        person = db.execute("SELECT * FROM person")
+        return render_template("back.html", books=books, person=person)
