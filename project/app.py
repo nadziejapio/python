@@ -73,13 +73,12 @@ def buy():
 def addbook():
     if request.method == "POST":
         titles = db.execute("SELECT title FROM book WHERE ownersID = ?", session["user_id"])
-        if request.form.get("title") in titles:
+        if request.form.get("addbook") in titles:
             return render_template("error.html", info="Title already exists", number="400")
-        if request.form.get("title") == None:
+        if request.form.get("addbook") == None:
             return render_template("error.html", info="Must provide the title", number="400")
-
         else:
-            db.execute("INSERT INTO book (reader, title, time, status, ownersID) VALUES (?, ?, ?, avaliable, ?)", request.form.get("person"), request.form.get("title"), datetime.now(), session["user_id"])
+            db.execute("INSERT INTO book (reader, title, time, status, ownersID) VALUES (?, ?, ?, ?, ?)", request.form.get("person"), request.form.get("title"), datetime.now(), "avaliable", session["user_id"])
         return redirect("/")
     else:
         return render_template("addingbook.html")
