@@ -8,4 +8,15 @@
 {% for book in books %}
 <p>{{ book.title, book.name, book.surname, book.nick, book.time, book.status }}</p><br>
 {% endfor %}
+<form action="/find" method="post">
+    <div class="mb-3">
+        <select class="form-select mx-auto w-auto" name="title">
+            <option disabled="" selected="">Title</option>
+            {% for book in books %}
+                <option value="{{ book.title }}">{{ book.title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Find</button>
+</form>
 {% endblock %}
