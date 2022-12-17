@@ -79,8 +79,8 @@ def buy():
 @login_required
 def addbook():
     if request.method == "POST":
-        title = db.execute("SELECT title FROM books WHERE ownersID = ?", session["user_id"])
-        if lookup(request.form.get("symbol")) == None:
+        titles = db.execute("SELECT title FROM books WHERE ownersID = ?", session["user_id"])
+        if request.form.get("title") in titles:
             return apology("wrong symbol", 400)
         elif not request.form.get("shares").isdigit():
             return apology("must be positive integer", 400)
