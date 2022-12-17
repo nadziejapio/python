@@ -152,7 +152,7 @@ def register():
     if request.method == "POST":
         regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
         if not request.form.get("username"):
-            return render_template("error.html", 400)
+            return render_template("error.html", info="Write Username", number="400")
         elif not request.form.get("password"):
             return apology("must provide password", 400)
         elif not request.form.get("confirmation"):
