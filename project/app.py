@@ -93,8 +93,8 @@ def logout():
 @app.route("/find", methods=["GET", "POST"])
 @login_required
 def find():
+    books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
     if request.method == "POST":
-        books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
         if books != None:
             return render_template("found.html", books=books)
         else:
