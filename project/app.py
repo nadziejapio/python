@@ -89,12 +89,8 @@ def history():
 def login():
     session.clear()
     if request.method == "POST":
-
-        # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
-
-        # Ensure password was submitted
+            return render_template("error.html", info="Must provide username!", number="403")
         elif not request.form.get("password"):
             return apology("must provide password", 403)
 
