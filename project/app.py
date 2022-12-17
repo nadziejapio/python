@@ -93,9 +93,8 @@ def logout():
 @app.route("/find", methods=["GET", "POST"])
 @login_required
 def find():
-    """Get stock quote."""
     if request.method == "POST":
-        list = lookup(request.form.get("symbol"))
+        lista = lookup(request.form.get("symbol"))
         if list != None:
             return render_template("found.html", list=list)
         else:
