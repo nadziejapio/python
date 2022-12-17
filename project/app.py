@@ -32,15 +32,14 @@ def after_request(response):
 @login_required
 def index():
     books = db.execute(
-        "SELECT title, status, name, surname, nick, time FROM book, person WHERE username = ? ", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
-    c = 0
-    print(stocks)
+        "SELECT title, status, name, surname, nick, time FROM book, person WHERE username, ownerID = ? ", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+    print(books)
     for stock in stocks:
         stock.update({"pricenow": lookup(stock['symbol'])['price']})
         c = c + stock['pricenow']*stock['SUM(number)']
     total = c
     bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
-    return render_template("index.html", stocks=stocks, bank=bank, total=total)
+    return render_template("index.html", books=stocks, bank=bank, total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
