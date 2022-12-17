@@ -106,11 +106,16 @@ def find():
             return render_template("error.html", info="You didn't add any book to your library!", number="400")
     else:
         return render_template("find.html", books=books)
-# @app.route("/found", methods=["GET", "POST"])
-# @login_required
-# def found(books):
+
+@app.route("/borrow", methods=["GET", "POST"])
+@login_required
+def found():
     if request.method == "POST":
         return render_template("find.html")
+    else:
+        books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
+        person = db.execute("SELECT * FROM person)
+        return render_template("borrow.html", books=books, person=person)
 
 
 
