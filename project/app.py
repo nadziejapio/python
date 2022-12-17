@@ -92,12 +92,8 @@ def login():
         if not request.form.get("username"):
             return render_template("error.html", info="Must provide username!", number="403")
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
-
-        # Query database for username
+            return render_template("error.html", info="Must provide password!", number="403")
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-
-        # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
             return apology("invalid username and/or password", 403)
 
