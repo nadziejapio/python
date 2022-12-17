@@ -32,7 +32,7 @@ def after_request(response):
 @login_required
 def index():
     books = db.execute(
-        "SELECT title, status, name, surname, nick, time FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+        "SELECT title, status, name, surname, nick, time FROM book, person WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     c = 0
     print(stocks)
     for stock in stocks:
