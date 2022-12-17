@@ -39,10 +39,9 @@ def index():
     return render_template("index.html", books=books)
 
 
-@app.route("/buy", methods=["GET", "POST"])
+@app.route("/addperson", methods=["GET", "POST"])
 @login_required
-def buy():
-    """Buy shares of stock"""
+def addperson():
     if request.method == "POST":
         if lookup(request.form.get("symbol")) == None:
             return apology("wrong symbol", 400)
