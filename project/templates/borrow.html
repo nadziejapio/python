@@ -16,9 +16,9 @@
         </div>
         <div class="mb-3">
             <select class="form-select mx-auto w-auto" name="nick">
-                <option disabled="" selected="">Nick</option>
+                <option disabled="" selected="">Name, nick</option>
                 {% for guy in person %}
-                    <option value="{{ guy.nick }}">{{ guy.name guy.surname, guy.nick }}</option>
+                    <option value="{{ guy.nick }}">{{ guy.name + " " + guy.surname + ", " + guy.nick }}</option>
                 {% endfor %}
             </select>
         </div>

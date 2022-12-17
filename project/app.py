@@ -114,7 +114,7 @@ def borrow():
         if not request.form.get("title") or request.form.get("nick"):
             return rendert_template("error.html", info="Provide title and nick!", number="400")
         else:
-            db.execute("UPDATE book SET readerID = ?, status = "borrowed", WHERE title = ?", db.execute("SELECT person_id FROM person WHERE nick = ?", request.form.get("nick")), request.form.get("title"))
+            db.execute("UPDATE book SET readerID = ?, status = ?, WHERE title = ?", db.execute("SELECT person_id FROM person WHERE nick = ?", request.form.get("nick")), "borrowed", request.form.get("title"))
         return redirect("/")
     else:
         books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
