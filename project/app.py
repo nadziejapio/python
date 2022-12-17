@@ -123,14 +123,8 @@ def login():
 
 @app.route("/logout")
 def logout():
-    """Log user out"""
-
-    # Forget any user_id
     session.clear()
-
-    # Redirect user to login form
     return redirect("/")
-
 
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
