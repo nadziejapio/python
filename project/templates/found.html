@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
-<p>{{ book.title, book.name, book.surname, book.nick, book.time, book.status }}</p>
-
+{% for book in books %}
+<p>{{ book.title, book.name, book.surname, book.nick, book.time, book.status }}</p><br>
+{% endfor %}
 {% endblock %}
