@@ -162,9 +162,8 @@ def back():
         if request.form.get("title") == None:
             return render_template("error.html", info="Provide title!", number="400")
         elif request.form.get("nick") == None:
-            return render_template("error.html", info="Provide nick!", number="400")
+            db.execute("UPDATE book SET status = ? WHERE title = ?", "avaliable", request.form.get("title"))
+            return redirect("/")
         return redirect("/")
     else:
-        stocks = db.execute(
-            "SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
         return render_template("back.html", stocks=stocks)
