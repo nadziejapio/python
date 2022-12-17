@@ -69,15 +69,6 @@ def addbook():
     else:
         return render_template("addingbook.html")
 
-@app.route("/history")
-@login_required
-def history():
-    """Show history of transactions"""
-    stocks = db.execute("SELECT price, date, number, symbol FROM transactions WHERE username = ?",
-                        db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
-    return render_template("history.html", stocks=stocks)
-
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     session.clear()
@@ -99,18 +90,18 @@ def logout():
     session.clear()
     return redirect("/")
 
-@app.route("/quote", methods=["GET", "POST"])
+@app.route("/find", methods=["GET", "POST"])
 @login_required
 def quote():
     """Get stock quote."""
     if request.method == "POST":
         list = lookup(request.form.get("symbol"))
         if list != None:
-            return render_template("quoted.html", list=list)
+            return render_template("found.html", list=list)
         else:
             return apology("invalid symbol", 400)
     else:
-        return render_template("quote.html")
+        return render_template("find.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
