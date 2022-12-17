@@ -45,10 +45,10 @@ def addperson():
     people = db.execute("SELECT nick FROM person")
         if request.form.get("nick") in people:
             return render_template("error.html", info="Nick already used", number="400")
-        if request.form.get("addbook") == None:
-            return render_template("error.html", info="Must provide the title", number="400")
+        if request.form.get("name") or request.form.get("surname") or request.form.get("nick") == None:
+            return render_template("error.html", info="Must provide all info", number="400")
         else:
-            db.execute("INSERT INTO book (readerID, title, time, status, ownersID) VALUES (?, ?, ?, ?, ?)", request.form.get("person"), request.form.get("addbook"), datetime.now(), "avaliable", session["user_id"])
+            db.execute("INSERT INTO person (name, surname, nick) VALUES (?, ?, ?)", request.form.get("person"), request.form.get("addbook"), datetime.now(), "avaliable", session["user_id"])
         return redirect("/")
     else:
         return render_template("addingperson.html")
