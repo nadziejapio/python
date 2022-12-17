@@ -84,8 +84,7 @@ def addbook():
             return render_template("error.html", info="Title already exists", number="400")
         if request.form.get("title") == None:
             return render_template("error.html", info="Must provide the title", number="400")
-        status =""
-        if
+
         else:
             db.execute("INSERT INTO book (reader, title, time, status, ownersID) VALUES (?, ?, ?, ?, ?)", request.form.get("person"), request.form.get("title"), datetime.now(),  ))
         name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
