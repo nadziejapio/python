@@ -13,7 +13,7 @@
         <select class="form-select mx-auto w-auto" name="title">
             <option disabled="" selected="">Borrowed</option>
             {% for guy in person %}
-                <option value="{{ guy.nick }}">{{ guy.name guy.surname }}</option>
+                <option value="{{ guy.nick }}">{{ guy.surname }}</option>
             {% endfor %}
         </select>
     </div>
