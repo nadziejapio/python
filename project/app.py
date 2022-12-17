@@ -97,7 +97,7 @@ def find():
     books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
     for book in books:
         if book["readerID"] != None:
-            book.update(db.execute("SELECT * FROM person WHERE person_id = ?", readerID))
+            book.update(db.execute("SELECT * FROM person WHERE person_id = ?", book['readerID'])[0])
         else:
             book.update([("name", "No one"), ("surname", "borrowed"), ("nick", "yet")])
     if request.method == "POST":
