@@ -34,7 +34,8 @@ def index():
     books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
     for book in books:
         if book["readerID"] != None:
-            book.update(db.execute("SELECT * FROM person WHERE person_id = ?", book['readerID']))
+            guy = db.execute("SELECT * FROM person WHERE person_id = ?", book['readerID'])
+            book.update(guy[0])
     print(books)
     return render_template("index.html", books=books)
 
