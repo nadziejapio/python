@@ -94,9 +94,9 @@ def logout():
 @login_required
 def find():
     if request.method == "POST":
-        lista = lookup(request.form.get("symbol"))
-        if list != None:
-            return render_template("found.html", list=list)
+        books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
+        if books != None:
+            return render_template("found.html", books=books)
         else:
             return apology("invalid symbol", 400)
     else:
