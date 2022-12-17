@@ -86,11 +86,11 @@ def addbook():
             return render_template("error.html", info="Must provide the title", number="400")
 
         else:
-            db.execute("INSERT INTO book (reader, title, time, status, ownersID) VALUES (?, ?, ?, avaliable, ?)", request.form.get("person"), request.form.get("title"), datetime.now(), session["user_id"] ))
-        
+            db.execute("INSERT INTO book (reader, title, time, status, ownersID) VALUES (?, ?, ?, avaliable, ?)", request.form.get("person"), request.form.get("title"), datetime.now(), session["user_id"] )
+
         return redirect("/")
     else:
-        return render_template("buy.html")
+        return render_template("addingbook.html")
 
 @app.route("/history")
 @login_required
