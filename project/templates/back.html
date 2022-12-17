@@ -7,7 +7,7 @@
 {% block main %}
     <form action="/back" method="post">
         <div class="mb-3">
-            <select class="form-select mx-auto w-auto" name="symbol">
+            <select class="form-select mx-auto w-auto" name="title">
                 <option disabled="" selected="">Title</option>
                 {% for book in books %}
                     <option value="{{ book.title }}">{{ book.title }}</option>
@@ -15,8 +15,13 @@
             </select>
         </div>
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="person" name="person" placeholder="Did someone else rented it?" type="int">
+            <select class="form-select mx-auto w-auto" name="nick">
+                <option disabled="" selected="">Name, nick</option>
+                {% for guy in person %}
+                    <option value="{{ guy.nick }}">{{ guy.name + " " + guy.surname + ", " + guy.nick }}</option>
+                {% endfor %}
+            </select>
         </div>
-        <button class="btn btn-primary" type="submit">Give back</button>
+        <button class="btn btn-primary" type="submit">Change</button>
     </form>
 {% endblock %}
