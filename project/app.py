@@ -98,7 +98,7 @@ def find():
         if books != None:
             return render_template("found.html", books=books)
         else:
-            return render_template("error.html", info="invalid symbol", 400)
+            return render_template("error.html", info="You didn't add any book to your library!", number="400")
     else:
         return render_template("find.html")
 
