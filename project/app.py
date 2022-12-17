@@ -33,8 +33,8 @@ def after_request(response):
 def index():
     books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
     for book in books:
-        if book["readerID"] != NULL:
-            book.update()
+        if book["readerID"] != None:
+            book.update(db.execute("SELECT * FROM person WHERE person_id = ?"), readerID)
     print(books)
     return render_template("index.html", books=books)
 
