@@ -78,7 +78,7 @@ def addbook():
         if request.form.get("addbook") == None:
             return render_template("error.html", info="Must provide the title", number="400")
         else:
-            db.execute("INSERT INTO book (reader, title, time, status, ownersID) VALUES (?, ?, ?, ?, ?)", request.form.get("person"), request.form.get("title"), datetime.now(), "avaliable", session["user_id"])
+            db.execute("INSERT INTO book (readerID, title, time, status, ownersID) VALUES (?, ?, ?, ?, ?)", request.form.get("person"), request.form.get("addbook"), datetime.now(), "avaliable", session["user_id"])
         return redirect("/")
     else:
         return render_template("addingbook.html")
