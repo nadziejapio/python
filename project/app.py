@@ -42,33 +42,16 @@ def index():
 @app.route("/addperson", methods=["GET", "POST"])
 @login_required
 def addperson():
-    if request.method == "POST":
-        if lookup(request.form.get("symbol")) == None:
-            return apology("wrong symbol", 400)
-        elif not request.form.get("shares").isdigit():
-            return apology("must be positive integer", 400)
-        elif not float(request.form.get("shares")).is_integer():
-            return apology("must be positive integer", 400)
-        elif int(request.form.get("shares")) <= 0:
-            return apology("must be positive integer", 400)
-
-        name = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username")
-        sym = request.form.get("symbol")
-        print(lookup(request.form.get("symbol")))
-        baza = lookup(request.form.get("symbol"))
-        nazwa = lookup(request.form.get("symbol")).get("name")
-        cena = baza.get("price")
-        numberofshares = int(request.form.get("shares"))
-        koszt = cena * numberofshares
-        bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0].get("cash")
-        if koszt > bank:
-            return apology("You cannot afford it", 400)
-        db.execute("INSERT INTO transactions (username, symbol, price, date, number, nazwa) VALUES (?, ?, ?, ?, ?, ?)",
-                   name, sym, koszt, datetime.now(), float(request.form.get("shares")), nazwa)
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", bank - koszt, session["user_id"])
+    people = db.execute("SELECT nick FROM person")
+        if request.form.get("nick") in people:
+            return render_template("error.html", info="Nick already used", number="400")
+        if request.form.get("addbook") == None:
+            return render_template("error.html", info="Must provide the title", number="400")
+        else:
+            db.execute("INSERT INTO book (readerID, title, time, status, ownersID) VALUES (?, ?, ?, ?, ?)", request.form.get("person"), request.form.get("addbook"), datetime.now(), "avaliable", session["user_id"])
         return redirect("/")
     else:
-        return render_template("buy.html")
+        return render_template("addingperson.html")
 
 @app.route("/addbook", methods=["GET", "POST"])
 @login_required
