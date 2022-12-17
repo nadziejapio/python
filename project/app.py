@@ -109,12 +109,16 @@ def find():
 
 @app.route("/borrow", methods=["GET", "POST"])
 @login_required
-def found():
+def borrow():
     if request.method == "POST":
-        return render_template("find.html")
+        if not request.form.get("title") or request.form.get("nick"):
+            return rendert_template("error.html", info="Provide title and nick!", number="400")
+        else:
+            db.execute("UPDATE )
+        return redirect("/")
     else:
         books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
-        person = db.execute("SELECT * FROM person)
+        person = db.execute("SELECT * FROM person")
         return render_template("borrow.html", books=books, person=person)
 
 
