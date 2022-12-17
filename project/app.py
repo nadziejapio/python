@@ -72,7 +72,7 @@ def buy():
 @login_required
 def addbook():
     if request.method == "POST":
-        titles = db.execute("SELECT title FROM books WHERE ownersID = ?", session["user_id"])
+        titles = db.execute("SELECT title FROM book WHERE ownersID = ?", session["user_id"])
         if request.form.get("title") in titles:
             return render_template("error.html", info="Title already exists", number="400")
         if request.form.get("title") == None:
