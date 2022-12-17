@@ -46,8 +46,8 @@ def addperson():
         people = db.execute("SELECT nick FROM person")
         if request.form.get("nick") in people:
             return render_template("error.html", info="Nick already used", number="400")
-        if request.form.get("name") or request.form.get("surname") or request.form.get("nick") == None:
-            return render_template("error.html", info="Must provide all info", number="400")
+        if request.form.get("nick") == None:
+            return render_template("error.html", info="Must provide at least Nickname", number="400")
         else:
             db.execute("INSERT INTO person (name, surname, nick) VALUES (?, ?, ?)", request.form.get("name"), request.form.get("surname"), request.form.get("nick"))
         return redirect("/")
