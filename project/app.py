@@ -97,6 +97,8 @@ def find():
     for book in books:
         if book["readerID"] != None:
             book.update(db.execute("SELECT * FROM person WHERE person_id = ?", readerID))
+        else:
+            book.update({"name": "None"}, {"surname": "None"}, {"nick": "None"})
     if request.method == "POST":
         if books != None:
             return render_template("found.html", books=books)
