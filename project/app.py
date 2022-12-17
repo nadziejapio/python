@@ -92,7 +92,7 @@ def logout():
 
 @app.route("/find", methods=["GET", "POST"])
 @login_required
-def quote():
+def find():
     """Get stock quote."""
     if request.method == "POST":
         list = lookup(request.form.get("symbol"))
