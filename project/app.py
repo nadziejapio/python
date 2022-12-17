@@ -99,9 +99,10 @@ def find():
             book.update(db.execute("SELECT * FROM person WHERE person_id = ?", readerID))
         else:
             book.update([("name", "No one"), ("surname", "borrowed"), ("nick", "yet")])
+    person = db.execute("SELECT * FROM person")
     if request.method == "POST":
         if books != None:
-            return render_template("found.html", books=books)
+            return render_template("found.html", books=books, person=person)
         else:
             return render_template("error.html", info="You didn't add any book to your library!", number="400")
     else:
@@ -110,7 +111,7 @@ def find():
 @login_required
 def found(books):
     if request.method == "POST":
-        return render_template("find.html)
+        return render_template("find.html")
 
 
 
