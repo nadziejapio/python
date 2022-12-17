@@ -153,8 +153,6 @@ def register():
             return render_template("error.html", info="User already exists!", number="400")
         if len(request.form.get("password")) < 8:
            return render_template("error.html", info="password needs to have at least 8 signs", number="400")
-        elif regex.search(request.form.get("password")) != None:
-           return render_template("error.html", info="password needs to have at least 1 special sign", number="400")
         elif not bool(re.search(r'\d', request.form.get("password"))):
            return render_template("error.html", info="number needed", number="400")
         else:
