@@ -32,7 +32,7 @@ def after_request(response):
 @login_required
 def index():
     books = db.execute(
-        "SELECT title, status, name, surname, nick, time FROM book, person, users WHERE username = ?, ownerID = ? ", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"), db.execute("SELECT username FROM users WHERE id = ?", session["user_id"]))
+        "SELECT title, status, name, surname, nick, time FROM book, person, users WHERE username = ?, ownerID = ? ", (db.execute("SELECT username FROM users WHERE id = ?", session["user_id"]))[0].get("username"), db.execute("SELECT username FROM users WHERE id = ?", session["user_id"]))
     print(books)
     return render_template("index.html", books=books)
 
