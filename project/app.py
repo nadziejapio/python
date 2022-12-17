@@ -164,6 +164,8 @@ def back():
         elif request.form.get("nick") == None:
             db.execute("UPDATE book SET status = ? WHERE title = ?", "avaliable", request.form.get("title"))
             return redirect("/")
+        else:
+            ("UPDATE book SET statu = ?, )
         return redirect("/")
     else:
         books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
