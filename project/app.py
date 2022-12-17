@@ -162,7 +162,7 @@ def back():
         if request.form.get("title") == None:
             return render_template("error.html", info="Provide title!", number="400")
         elif request.form.get("nick") == None:
-            db.execute("UPDATE book SET status = ?, readerID = ? WHERE title = ?", "avaliable", None, request.form.get("title"))
+            db.execute("UPDATE book SET status = ?, readerID = ?, time = ? WHERE title = ?", "avaliable", None, datetime.now(), request.form.get("title"))
             return redirect("/")
         else:
             db.execute("UPDATE book SET status = ?, readerID = ?, time = ? WHERE title = ?", "borrowed", db.execute("SELECT person_id FROM person WHERE nick = ?", request.form.get("nick"))[0]['person_id'], datetime.now(),request.form.get("title"))
