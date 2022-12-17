@@ -154,14 +154,14 @@ def register():
         if not request.form.get("username"):
             return render_template("error.html", info="Write Username!", number="400")
         elif not request.form.get("password"):
-            return apology("must provide password", 400)
+            return render_template("error.html", info="Must provide password!", number="400")
         elif not request.form.get("confirmation"):
-            return apology("must provide confirmation", 400)
+            return render_template("error.html", info="Must provide confirmation!", number="400")
         if request.form.get("password") != request.form.get("confirmation"):
-            return apology("passwords don't match", 400)
+            return render_template("error.html", info="Passwords don't match!", 400)
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         if len(rows) == 1:
-            return apology("user already exists", 400)
+            return render_template("error.html", info="User already exists", 400)
        # if len(request.form.get("password")) < 8:
         #    return apology("password needs to have at least 8 signs", 400)
         # elif regex.search(request.form.get("password")) != None:
