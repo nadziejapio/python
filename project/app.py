@@ -102,7 +102,7 @@ def find():
             book.update([("name", "No one"), ("surname", "borrowed"), ("nick", "yet")])
     if request.method == "POST":
         if books != None:
-            return render_template("found.html")
+            return render_template("found.html", books=books)
         else:
             return render_template("error.html", info="You didn't add any book to your library!", number="400")
     else:
