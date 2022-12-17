@@ -106,7 +106,7 @@ def find():
         else:
             return render_template("error.html", info="You didn't add any book to your library!", number="400")
     else:
-        return render_template("find.html", books=books)
+        return render_template("find.html", books=books, person=person)
 @app.route("/found", methods=["GET", "POST"])
 @login_required
 def found(books):
