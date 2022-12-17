@@ -180,4 +180,4 @@ def back():
     else:
         stocks = db.execute(
             "SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
-        return render_template("back.html", stocks=stocks)
+        return render_template("backzx.html", stocks=stocks)
