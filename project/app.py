@@ -95,18 +95,11 @@ def login():
             return render_template("error.html", info="Must provide password!", number="403")
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
-
-        # Remember which user has logged in
+            return render_template("error.html", info="Invalid username and/or password!", number="403")
         session["user_id"] = rows[0]["id"]
-
-        # Redirect user to home page
         return redirect("/")
-
-    # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
-
 
 @app.route("/logout")
 def logout():
