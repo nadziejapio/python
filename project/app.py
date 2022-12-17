@@ -31,8 +31,8 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    stocks = db.execute(
-        "SELECT symbol, SUM(number), username, nazwa FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
+    books = db.execute(
+        "SELECT title,  FROM transactions WHERE username = ? GROUP BY symbol, nazwa", db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])[0].get("username"))
     c = 0
     print(stocks)
     for stock in stocks:
