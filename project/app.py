@@ -102,14 +102,14 @@ def find():
     person = db.execute("SELECT * FROM person")
     if request.method == "POST":
         if books != None:
-            return render_template("found.html", books=books, person=person)
+            return render_template("found.html")
         else:
             return render_template("error.html", info="You didn't add any book to your library!", number="400")
     else:
         return render_template("find.html", books=books, person=person)
-@app.route("/found", methods=["GET", "POST"])
-@login_required
-def found(books):
+# @app.route("/found", methods=["GET", "POST"])
+# @login_required
+# def found(books):
     if request.method == "POST":
         return render_template("find.html")
 
