@@ -95,14 +95,16 @@ def logout():
 @login_required
 def find():
     books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])
-    for book in books:
-        if book["readerID"] != None:
-            book.update(db.execute("SELECT * FROM person WHERE person_id = ?", book['readerID'])[0])
-        else:
-            book.update([("name", "No one"), ("surname", "borrowed"), ("nick", "yet")])
     if request.method == "POST":
+        guys = {}
         if books != None:
-            return render_template("found.html", books=books)
+            books = db.execute("SELECT * FROM book WHERE ownersID = ? AND title = ?", session["user_id"], request.form.get("title"))
+            if db.execute("SELECT readerID FROM book WHERE ownersID = ? AND title = ?", session["user_id"], request.form.get("title"))[0]['readerID'] != None:
+                guys = db.execute("SELECT * FROM person WHERE person_id = ?", db.execute("SELECT readerID FROM book WHERE ownersID = ? AND title = ?", session["user_id"], request.form.get("title"))[0]['readerID'])[0]
+                return render_template("found.html", books=books, guys=guys)
+            else:
+                guys = [("name", "No one"), ("surname", "borrowed"), ("nick", "yet")]
+                return render_template("found.html", books=books, guys=guys)
         else:
             return render_template("error.html", info="You didn't add any book to your library!", number="400")
     else:
@@ -117,7 +119,7 @@ def borrow():
         elif request.form.get("nick") == None:
             return render_template("error.html", info="Provide nick!", number="400")
         else:
-            db.execute("UPDATE book SET readerID = ?, status = ? WHERE title = ?", db.execute("SELECT person_id FROM person WHERE nick = ?", request.form.get("nick"))[0]['person_id'], "borrowed", request.form.get("title"))
+            db.execute("UPDATE book SET readerID = ?, status = ?, time = ? WHERE title = ?", db.execute("SELECT person_id FROM person WHERE nick = ?", request.form.get("nick"))[0]['person_id'], "borrowed", datetime.now(), request.form.get("title"))
             return redirect("/")
     else:
         books = db.execute("SELECT * FROM book WHERE ownersID = ?", session["user_id"])

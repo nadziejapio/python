@@ -6,6 +6,7 @@
 
 {% block main %}
 {% for book in books %}
-<p>{{ book.title, book.name, book.surname, book.nick, book.time, book.status }}</p><br>
+Borrowed by: <strong>{{ guys.nick }}</strong>
+<p>{{ book.title, book.time, book.status }}</p><br>
 {% endfor %}
 {% endblock %}
