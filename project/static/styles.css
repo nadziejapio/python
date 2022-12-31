@@ -1,5 +1,9 @@
-/* Size for brand */
 nav .navbar-brand
 {
     font-size: xx-large;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #228866;
+    border-color: #228866;
