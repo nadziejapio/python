@@ -7,3 +7,4 @@ while True:
             a -= i
     else:
         print("Change Owed: ", a)
+        break
