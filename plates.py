@@ -13,9 +13,11 @@ def is_valid(s):
         return False
 
 def start_with_two_letters(plate):
-    if plate[0].isalpha() and plate[1].isalpha()
-def min_max_characters(plate):
-
+    if 1 < len(plate) < 7:
+        if plate[0].isalpha() and plate[1].isalpha():
+            return True
+    else:
+        return False
 def numbers(plate):
 
 def signs(plate):
