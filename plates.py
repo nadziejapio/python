@@ -13,12 +13,12 @@ def is_valid(s):
         return False
 
 def start_with_two_letters(plate):
-
+    if plate
 def min_max_characters(plate):
 
 def numbers(plate):
 
 def signs(plate):
-    
+
 
 main()
