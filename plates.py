@@ -13,7 +13,7 @@ def is_valid(s):
         return False
 
 def start_with_two_letters(plate):
-    if plate
+    if plate[0].isalpha() and plate[1].isalpha()
 def min_max_characters(plate):
 
 def numbers(plate):
