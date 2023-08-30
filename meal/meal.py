@@ -8,7 +8,8 @@ def main():
         print("dinner time")
 
 def convert(time):
-    h, m = int(time.split(":"))
-    return h + (m/60)
+    h, m = time.split(":")
+    return int(h) + (int(m)/60)
 
-main()
+if __name__ == "__main__":
+    main()
