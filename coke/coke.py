@@ -2,5 +2,5 @@ a = 50
 while True:
     if a != 0:
         print ("Amount Due: ", a)
-        i = input("Insert Coin: ")
-    
+        i = int(input("Insert Coin: "))
+        if i == 25 or i == 10 or i == 5
