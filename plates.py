@@ -21,8 +21,12 @@ def start_with_two_letters(plate):
     else:
         return False
 def numbers(plate):
+    
 
 def signs(plate):
-
+    if plate.isalnum():
+        return True
+    else:
+        return False
 
 main()
