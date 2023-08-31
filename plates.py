@@ -22,8 +22,9 @@ def start_with_two_letters(plate):
         return False
 
 def numbers(plate):
-    for i in plate:
-        
+    for i in range(len(plate)):
+        if plate[i].isdigit():
+            if 
 
 
 
