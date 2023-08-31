@@ -27,6 +27,7 @@ def numbers(plate):
             return False
         
 
+
 def signs(plate):
     if plate.isalnum():
         return True
