@@ -15,3 +15,5 @@ while True:
         i = input("Item: ").title()
     except EOFError:
         break
+    except KeyError:
+        
