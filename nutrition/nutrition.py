@@ -1,4 +1,4 @@
-i = input("Item: ").capitalize()
+i = input("Item: ").title()
 
 fruits = {
     "Apple": "130",
