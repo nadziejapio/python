@@ -7,7 +7,7 @@ def main():
 
 
 def is_valid(s):
-    if start_with_two_letters(s) and min_max_characters(s) and numbers(s) and signs(s):
+    if start_with_two_letters(s) and numbers(s) and signs(s):
         return True
     else
         return False
@@ -20,8 +20,10 @@ def start_with_two_letters(plate):
             return False
     else:
         return False
+
 def numbers(plate):
-    
+    if len(plate)>3:
+        if
 
 def signs(plate):
     if plate.isalnum():
