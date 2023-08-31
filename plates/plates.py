@@ -9,7 +9,7 @@ def main():
 def is_valid(s):
     if start_with_two_letters(s) and numbers(s) and signs(s):
         return True
-    else
+    else:
         return False
 
 def start_with_two_letters(plate):
@@ -24,9 +24,10 @@ def start_with_two_letters(plate):
 def numbers(plate):
     for i in range(len(plate)):
         if plate[i].isdigit():
-            if 
-
-
+            if plate[i] == "0":
+                return False
+            else:
+                return plate[i:len(plate)].isdigit()
 
 def signs(plate):
     if plate.isalnum():
