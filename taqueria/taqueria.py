@@ -17,7 +17,7 @@ while True:
         i = input("Item: ").title()
         if i in menu:
             total += menu[i]
-            print(f"Total: ${total}")
+            print(f"Total: ${format(total, '.2f')}")
         else:
             continue
     except EOFError:
