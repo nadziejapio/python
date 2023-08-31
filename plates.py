@@ -14,7 +14,7 @@ def is_valid(s):
 
 def start_with_two_letters(plate):
     if 1 < len(plate) < 7:
-        if plate[0].isalpha() and plate[1].isalpha():
+        if plate[0:1].isalpha():
             return True
         else:
             return False
@@ -22,7 +22,7 @@ def start_with_two_letters(plate):
         return False
 
 def numbers(plate):
-    
+
 
 
 
