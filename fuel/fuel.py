@@ -7,7 +7,7 @@ while True:
         elif ans < 1:
             print ("E")
         else:
-            print(f"{int(ans)}%")
+            print(f"{round(ans)}%")
         break
     except (ValueError, ZeroDivisionError):
         continue
