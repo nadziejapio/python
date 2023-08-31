@@ -1,6 +1,8 @@
 while True:
-    
+    x = input("Fraction: ")
     try:
-        x = round(float(input("Fraction: "))*100)
-        print(x+"%")
-    except (Value):
+        x = round(float(x)*100)
+        print(f"{x}%")
+        break
+    except (ValueError, ZeroDivisionError):
+        continue
