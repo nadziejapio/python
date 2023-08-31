@@ -28,8 +28,7 @@ def numbers(plate):
                 return False
             else:
                 return plate[i:len(plate)].isdigit()
-        else:
-            return True
+    return True
 
 def signs(plate):
     if plate.isalnum():
