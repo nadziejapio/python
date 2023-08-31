@@ -1,6 +1,6 @@
 i = input("Item: ")
 
-fruits{
+fruits = {
     "Apple": "130",
     "Avocado":"50",
     "Banana":"110",
@@ -24,4 +24,4 @@ fruits{
 }
 
 if i in fruits:
-    print(frutis[i])
+    print("Calories:", fruits[i])
