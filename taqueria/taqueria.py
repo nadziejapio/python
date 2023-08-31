@@ -21,6 +21,7 @@ while True:
         else:
             continue
     except EOFError:
+        print()
         break
     except KeyError:
         continue
