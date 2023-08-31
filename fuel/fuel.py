@@ -1,8 +1,8 @@
 while True:
-    x,y = input("Fraction: ").split("/")
     try:
+        x,y = input("Fraction: ").split("/")
         ans = int(x)/int(y)*100
-        print(f"{ans}%")
+        print(f"{int(ans)}%")
         break
     except (ValueError, ZeroDivisionError):
         continue
