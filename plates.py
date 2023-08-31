@@ -23,7 +23,9 @@ def start_with_two_letters(plate):
 
 def numbers(plate):
     if len(plate)>3:
-        if
+        if plate[2] == "0":
+            return False
+        
 
 def signs(plate):
     if plate.isalnum():
