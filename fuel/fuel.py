@@ -6,6 +6,8 @@ while True:
             print("F")
         elif ans < 2:
             print ("E")
+        elif ans > 100:
+            continue
         else:
             print(f"{round(ans)}%")
         break
