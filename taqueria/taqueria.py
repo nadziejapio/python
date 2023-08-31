@@ -13,7 +13,8 @@ menu = {
 while True:
     try:
         i = input("Item: ").title()
-        if 
+        if i in menu:
+            
     except EOFError:
         break
     except KeyError:
