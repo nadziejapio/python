@@ -22,10 +22,8 @@ def start_with_two_letters(plate):
         return False
 
 def numbers(plate):
-    if len(plate)>3:
-        if plate[2] == "0":
-            return False
-        
+    
+
 
 
 def signs(plate):
