@@ -1,3 +1,6 @@
 import emoji
 
-i = input("Inpu")
+i = input("Input: ")
+
+try:
+    print(f"Output: {emoji.emojize{i}}")
