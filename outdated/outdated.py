@@ -18,6 +18,7 @@ while True:
         i = input("Date: ")
         print(i, i[0])
         if i[0].isalpha():
+            print(i[0].isalpha())
             m, d, y = i.split()
         else:
             m, d, y = i.split("/")
