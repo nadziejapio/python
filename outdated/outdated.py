@@ -21,6 +21,7 @@ while True:
             m, d, y = i.split()
         else:
             m, d, y = i.split("/")
+        d = d[1::-1]
         print(m, d, y, sep=", ")
         if int(d[1:-1]) in range(1,32):
             if m in months:
