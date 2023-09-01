@@ -16,6 +16,7 @@ months = [
 while True:
     #try:
         m, d, y = input("Date: ").split()
+        print(m, d, y, sep=", ")
         if int(d) in range(1,32):
             if m in months:
                 print(f"{y}-{m}-{int(d):02}")
