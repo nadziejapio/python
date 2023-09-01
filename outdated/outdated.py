@@ -20,7 +20,7 @@ while True:
             if m in months:
                 print(f"{y}-{m}-{d}")
             elif int(m) in range(1, 13):
-                print(f"{y}-{m:02}-{d}")
+                print(f"{y}-{int(m):02}-{int(d):02}")
             else:
                 continue
         else:
