@@ -19,8 +19,11 @@ while True:
         if i[0].isalpha():
             m, d, y = i.split()
         else:
-            m, d, y = i.split("/")
-        d = d.strip(',')
+            m, d, y = i.split("/").strip
+        if d[-1]:
+            d = d.strip(',')
+        else:
+            continue
         m = m.strip()
         if int(d) in range(1,32):
             if m in months:
