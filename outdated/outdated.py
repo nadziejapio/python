@@ -14,7 +14,7 @@ months = [
 ]
 
 while True:
-    #try:
+    try:
         i = input("Date: ").strip()
         if i[0].isalpha():
             m, d, y = i.split()
@@ -37,5 +37,5 @@ while True:
                 continue
         else:
             continue
-    #except Exception:
-    #  continue
+    except Exception:
+        continue
