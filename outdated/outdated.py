@@ -14,14 +14,13 @@ months = [
 ]
 
 while True:
-    try:
+    #try:
         i = input("Date: ")
         print(i, i[0])
         if i[0].isalpha:
             m, d, y = i.split()
         else:
             m, d, y = i.split("/")
-
         print(m, d, y, sep=", ")
         if int(d) in range(1,32):
             if m in months:
@@ -34,5 +33,5 @@ while True:
                 continue
         else:
             continue
-    except Exception:
-       continue
+    #except Exception:
+    #  continue
