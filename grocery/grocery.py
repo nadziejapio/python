@@ -7,6 +7,6 @@ while True:
         else:
             grocery_list[i] = 1
     except EOFError:
-        for j in grocery_list.sorted():
+        for j in sorted(grocery_list):
             print(grocery_list.get(j), j)
         break
