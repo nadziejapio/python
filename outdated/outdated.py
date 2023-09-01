@@ -22,7 +22,7 @@ while True:
         else:
             m, d, y = i.split("/")
         print(m, d, y, sep=", ")
-        if int(d) in range(1,32):
+        if int(d[1:-1]) in range(1,32):
             if m in months:
                 print(f"{y}-{m}-{int(d[0]):02}")
                 break
