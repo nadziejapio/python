@@ -19,8 +19,8 @@ while True:
         if i[0].isalpha():
             m, d, y = i.split()
         else:
-            m, d, y = i.split("/").strip
-        if d[-1]:
+            m, d, y = i.split("/")
+        if d[-1] == ",":
             d = d.strip(',')
         else:
             continue
