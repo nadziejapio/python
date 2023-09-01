@@ -15,7 +15,6 @@ months = [
 
 while True:
     try:
-        m,d,y=None
         i = input("Date: ")
         if i[0].isalpha:
             m, d, y = i.split()
