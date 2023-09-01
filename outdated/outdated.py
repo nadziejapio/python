@@ -21,6 +21,7 @@ while True:
         else:
             m, d, y = i.split("/")
         d = d.strip(',')
+        m = m.strip()
         if int(d) in range(1,32):
             if m in months:
                 print(f"{y}-{(int(months.index(m))+1):02}-{int(d[0]):02}")
