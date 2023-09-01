@@ -22,8 +22,7 @@ while True:
             m, d, y = i.split()
         else:
             m, d, y = i.split("/")
-        d.strip(',')
-        print(m, d, y, sep=", ")
+        d = d.strip(',')
         if int(d) in range(1,32):
             if m in months:
                 print(f"{y}-{m}-{int(d[0]):02}")
