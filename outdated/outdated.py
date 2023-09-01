@@ -23,7 +23,7 @@ while True:
         d = d.strip(',')
         if int(d) in range(1,32):
             if m in months:
-                print(f"{y}-{m}-{int(d[0]):02}")
+                print(f"{y}-{months[m]}-{int(d[0]):02}")
                 break
             elif int(m) in range(1, 13):
                 print(f"{y}-{int(m):02}-{int(d):02}")
