@@ -1,4 +1,5 @@
 import random
+import sys
 
 def main():
     lvl = get_level()
@@ -23,6 +24,7 @@ def main():
                 print("EEE")
                 continue
     print("Score:", score)
+    sys.exit()
 
 def get_level():
     while True:
