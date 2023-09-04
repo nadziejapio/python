@@ -1,2 +1,3 @@
+names = []
 while True:
-    i = input(")
+    i = input("Name: ")
