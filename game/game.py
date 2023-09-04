@@ -4,7 +4,7 @@ import sys
 def main():
     while True:
         i = input("Level: ")
-        if i.isdecimal():
+        if i.isdecimal() and int(i)>0:
             guess(i)
         else:
             continue
