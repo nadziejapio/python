@@ -7,7 +7,7 @@ fonts = figlet.getFonts()
 print (len(sys.argv))
 
 if len(sys.argv) == 3:
-    if sys.argv[1] != "-f" or sys.argv[1] != "--font" or sys.argv[2] not in fonts:
+    if sys.argv[1] != "-f" or sys.argv[1] != "--font":
         sys.exit("Invalid usage")
     else:
         i = input("Input: ")
