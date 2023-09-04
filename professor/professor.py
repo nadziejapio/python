@@ -23,6 +23,7 @@ def main():
             except ValueError:
                 print("EEE")
                 continue
+        print(f"{x} + {y} = {answer}")
     print("Score:", score)
     sys.exit()
 
