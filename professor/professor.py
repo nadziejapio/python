@@ -4,7 +4,7 @@ import sys
 def main():
     lvl = get_level()
     score = 0
-    for _ in range(11):
+    for _ in range(10):
         x = generate_integer(lvl)
         y = generate_integer(lvl)
         answer = x + y
@@ -26,6 +26,7 @@ def main():
                     print(f"{x} + {y} = {answer}")
                 continue
     print("Score:", score)
+    sys.exit()
 
 def get_level():
     while True:
