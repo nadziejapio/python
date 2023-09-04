@@ -26,7 +26,7 @@ def main():
                     print(f"{x} + {y} = {answer}")
                 continue
     print("Score:", score)
-    sys.exit()
+    sys.exit(0)
 
 def get_level():
     while True:
