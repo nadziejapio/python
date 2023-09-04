@@ -5,7 +5,7 @@ try:
     if len(sys.argv) != 2:
         sys.exit("Missing command-line argument")
     n = float(sys.argv[1])
-    response = requests.Response('https://api.coindesk.com/v1/bpi/currentprice.json')
+    response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
     print(response.json())
 
 except requests.RequestException:
