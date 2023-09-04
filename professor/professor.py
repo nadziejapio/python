@@ -10,10 +10,17 @@ def main():
             try:
                 ans = int(input(x, "+", y, "= "))
                 if ans == (x+y):
+                    if i == 0:
+                        score += 1
+                    else:
+                        break
+                else:
+                    raise ValueError
 
             except ValueError:
                 print("EEE")
                 continue
+    print("Score:", score)
 
 def get_level():
     while True:
