@@ -12,6 +12,7 @@ def main():
                 if ans == (x+y):
                     if i == 0:
                         score += 1
+                        break
                     else:
                         break
                 else:
