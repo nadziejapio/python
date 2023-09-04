@@ -35,7 +35,10 @@ def get_level():
             continue
 
 def generate_integer(level):
-    i = random.randrange(10**(level-1)-1, 10**level-1)
+    if level == 1:
+        i = random.randrange(10**(level-1)-1, 10**level-1)
+    else:
+        i = random.randrange(10**(level-1), 10**level-1)
     return i
 
 if __name__ == "__main__":
