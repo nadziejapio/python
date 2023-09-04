@@ -31,7 +31,7 @@ def get_level():
                 return i
             else:
                 continue
-        except Exceptation:
+        except ValueError:
             continue
 
 def generate_integer(level):
