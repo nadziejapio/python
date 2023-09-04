@@ -8,7 +8,7 @@ def main():
         y = generate_integer(lvl)
         for i in range(3):
             try:
-                ans = int(input(x, "+", y, "= "))
+                ans = int(input(f"{x} + {y} = "))
                 if ans == (x+y):
                     if i == 0:
                         score += 1
