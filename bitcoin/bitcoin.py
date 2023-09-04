@@ -3,7 +3,7 @@ import sys
 
 try:
     if len(sys.argv) != 2:
-        print(""Missing )
+        sys.exit("Missing command-line argument")
     n = float(sys.argv[1])
 
 except requests.RequestException:
