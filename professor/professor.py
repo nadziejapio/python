@@ -22,8 +22,9 @@ def main():
 
             except ValueError:
                 print("EEE")
+                if i == 2:
+                    print(f"{x} + {y} = {answer}")
                 continue
-        print(f"{x} + {y} = {answer}")
     print("Score:", score)
 
 def get_level():
