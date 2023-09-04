@@ -7,7 +7,7 @@ try:
         sys.exit("Missing command-line argument")
     n = float(sys.argv[1])
     response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-    print(f"${response.json()['bpi']['USD']['rate_float']:,.4f}")
+    print(f"${(response.json()['bpi']['USD']['rate_float'] * n):,.4f}")
     #print(json.dumps(response.json(), indent=2))
 
 except requests.RequestException:
