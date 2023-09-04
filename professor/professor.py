@@ -25,7 +25,7 @@ def main():
                 if i == 2:
                     print(f"{x} + {y} = {answer}")
                 continue
-    print("Score:", score)
+    print("Score:", str(score))
     sys.exit(0)
 
 def get_level():
