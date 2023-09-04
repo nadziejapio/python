@@ -6,14 +6,13 @@ def main():
     for _ in range(10):
         x = generate_integer(lvl)
         y = generate_integer(lvl)
-        while True:
+        f:
             try:
                 ans = int(input(x, "+", y, "= "))
                 if ans == (x+y):
 
             except ValueError:
                 print("EEE")
-                score -= 1
                 continue
 
 def get_level():
