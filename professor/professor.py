@@ -13,6 +13,7 @@ def main():
 
             except ValueError:
                 print("EEE")
+                score -= 1
                 continue
 
 def get_level():
