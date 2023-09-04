@@ -5,7 +5,11 @@ def main():
         i = input("")
 
 def get_level():
-    ...
+    while True:
+        try:
+            i = int(input("Level: "))
+        if i
+    i
 
 
 def generate_integer(level):
