@@ -6,7 +6,7 @@ def main():
     for _ in range(10):
         x = generate_integer(lvl)
         y = generate_integer(lvl)
-        f:
+        for i in range(3):
             try:
                 ans = int(input(x, "+", y, "= "))
                 if ans == (x+y):
