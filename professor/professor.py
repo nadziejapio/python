@@ -2,6 +2,7 @@ import random
 
 def main():
     lvl = get_level()
+    score = None
     for _ in range(10):
         x = generate_integer(lvl)
         y = generate_integer(lvl)
