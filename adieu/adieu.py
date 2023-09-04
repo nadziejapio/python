@@ -7,5 +7,5 @@ while True:
         i = input()
         names.append(i)
     except EOFError:
-        print("Adieu, adieu, to", p.join(names, final_sep=""))
+        print("Adieu, adieu, to", p.join(names))
         break
