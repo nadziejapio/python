@@ -1,8 +1,18 @@
 import random
 
 def main():
-    while True:
-        i = input("")
+    lvl = get_level()
+    for _ in range(10):
+        x = generate_integer(lvl)
+        y = generate_integer(lvl)
+        while True:
+            try:
+                ans = int(input(x, "+", y, "= "))
+                if ans == (x+y):
+
+            except ValueError:
+                print("EEE")
+                continue
 
 def get_level():
     while True:
