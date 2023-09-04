@@ -6,10 +6,11 @@ def main():
     for _ in range(10):
         x = generate_integer(lvl)
         y = generate_integer(lvl)
+        answer = x + y
         for i in range(3):
             try:
                 ans = int(input(f"{x} + {y} = "))
-                if ans == (x+y):
+                if ans == answer:
                     if i == 0:
                         score += 1
                         break
