@@ -6,7 +6,11 @@ def test_is_valid_two_letters():
 
 def test_is_valid_min_max():
     assert is_valid("A") == False
-    assert is Valid("ABDCSD2") == False
+    assert is_valid("ABDCSD2") == False
 
 def test_is_valid_numbers():
-    assert is valid("")
+    assert is_valid("AAA22A") == False
+    assert is_valid("AAA222") == True
+
+def test_is_valid_puntuation():
+    assert is_valid("AA,,22") == False
