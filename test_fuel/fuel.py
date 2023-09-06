@@ -7,7 +7,18 @@ def convert(fraction):
     while True:
         try:
             ans = round(int(x)/int(y)*100)
-            
+            if ans > 100:
+                raise 
+            elif ans < 2:
+                print ("E")
+            elif ans > 98:
+                print("F")
+            else:
+                print(f"{round(ans)}%")
+            break
+        except (ValueError, ZeroDivisionError):
+            continue
+
 
 def gauge(percentage):
 
