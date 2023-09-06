@@ -1,7 +1,7 @@
 from plates import is_valid
 
 def test_is_valid_two_letters():
-    assert is_valid("-/dsvc")
+    assert is_valid("-/dsvc") == False
     assert is_valid("12abcd") == False
 
 def test_is_valid_min_max():
