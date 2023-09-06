@@ -7,4 +7,5 @@ def test_gauge:
     assert fuel.gauge(0.5) == "E"
     assert fuel.gauge(1) == "E"
     assert fuel.gauge(99) == "F"
-    assert fue
+    assert fuel.gauge(100) =="F"
+    with pytest.raises(ValueError)
