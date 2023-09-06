@@ -1,7 +1,10 @@
 def main():
-    x,y = input("Fraction: ").split("/")
+    i = input("Fraction: ")
+    convert(i)
 
 def convert(fraction):
+    x,y = fraction.split("/")
+    ans = round(int(x)/int(y))
 
 def gauge(percentage):
 
