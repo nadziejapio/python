@@ -4,7 +4,8 @@ def main():
 
 def convert(fraction):
     x,y = fraction.split("/")
-    ans = round(int(x)/int(y))
+    try:
+    ans = round(int(x)/int(y)*100)
 
 def gauge(percentage):
 
