@@ -1,3 +1,4 @@
 from bank import value
 
-def test_
+def test_value_0():
+    assert value()
