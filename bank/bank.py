@@ -1,3 +1,4 @@
+
 i = input("Greeting: ")
 if i.strip().lower().find("hello") == 0:
     print("$0")
