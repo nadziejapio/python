@@ -11,7 +11,7 @@ def convert(fraction):
     x,y = fraction.split("/")
     ans = round(int(x)/int(y)*100)
         if ans > 100:
-            raise
+            raise ValueError
         elif ans < 2:
             print ("E")
         elif ans > 98:
