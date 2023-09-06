@@ -4,6 +4,8 @@ def test_is_valid_two_letters():
     assert is_valid("-/dsvc") == False
     assert is_valid("A12acd") == False
     assert is_valid("1A2acd") == False
+    assert is_valid("AB2345") == True
+    assert is_valid("123123") == False
 
 def test_is_valid_min_max():
     assert is_valid("A") == False
