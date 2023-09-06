@@ -5,7 +5,7 @@ def test_is_valid_two_letters():
     assert is_valid("12abcd") == False
 
 def test_is_valid_min_max():
-    assert is_valid("AA") == False
+    assert is_valid("A") == False
     assert is_valid("ABDCSD2") == False
     assert is_valid("") == False
 
