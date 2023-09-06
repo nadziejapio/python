@@ -1,4 +1,5 @@
 def main():
+    x,y = input("Fraction: ").split("/")
 
 def convert(fraction):
 
