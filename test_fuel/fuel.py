@@ -9,18 +9,16 @@ def main():
 
 def convert(fraction):
     x,y = fraction.split("/")
-    while True:
-        try:
-            ans = round(int(x)/int(y)*100)
-            if ans > 100:
-                raise
-            elif ans < 2:
-                print ("E")
-            elif ans > 98:
-                print("F")
-            else:
-                print(f"{round(ans)}%")
-            break
+    ans = round(int(x)/int(y)*100)
+        if ans > 100:
+            raise
+        elif ans < 2:
+            print ("E")
+        elif ans > 98:
+            print("F")
+        else:
+            print(f"{round(ans)}%")
+        break
 
 
 
