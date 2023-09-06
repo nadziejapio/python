@@ -13,3 +13,4 @@ def test_gauge():
     assert fuel.gauge(1) == "E"
     assert fuel.gauge(99) == "F"
     assert fuel.gauge(100) =="F"
+    assert fuel.gauge(54) == "54%"
