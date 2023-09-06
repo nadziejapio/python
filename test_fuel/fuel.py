@@ -10,35 +10,21 @@ def main():
 def convert(fraction):
     x,y = fraction.split("/")
     ans = round(int(x)/int(y)*100)
-        if ans > 100:
-            raise ValueError
-        elif ans < 2:
-            print ("E")
-        elif ans > 98:
-            print("F")
-        else:
-            print(f"{round(ans)}%")
-        break
-
-
+    if ans > 100:
+        raise ValueError
+    elif y == "0":
+        raise ZeroDivisionError
+    else:
+        return ans
 
 def gauge(percentage):
+    if percentage <= 1:
+        return "E"
+    elif percentage >= 99:
+        return "F"
+    else:
+        return f"{percantage}%"
+
 
 if __name__ == "__main__":
     main()
-while True:
-    try:
-        x,y = input("Fraction: ").split("/")
-        ans = int(x)/int(y)*100
-        if ans > 100:
-            continue
-        elif ans < 2:
-            print ("E")
-        elif ans > 98:
-            print("F")
-        else:
-            print(f"{round(ans)}%")
-        break
-    except (ValueError, ZeroDivisionError):
-        continue
-
