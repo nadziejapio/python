@@ -10,6 +10,6 @@ else:
     try:
         with open(sys.argv[1]) as file:
             for line in file:
-                print(line, end="")
+                print(line.rstrip())
     except FileNotFoundError:
         sys.exit("File not found")
