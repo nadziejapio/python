@@ -15,10 +15,9 @@ else:
                 if line.startswith("#"):
                     continue
                 elif line.strip():
-                    print(line)
-                    continue
-                else:
                     counter += 1
+                else:
+                    continue
         print(counter)
         sys.exit()
     except FileNotFoundError:
