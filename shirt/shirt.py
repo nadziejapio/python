@@ -19,6 +19,6 @@ elif in_ext_1 != in_ext_2:
 else:
     try:
         with open(sys.argv[1]) as file:
-
+            PIL.Image.open()
     except FileNotFoundError:
         sys.exit("Input does not exist")
