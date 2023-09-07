@@ -8,7 +8,7 @@ elif len(sys.argv) > 3:
 else:
     try:
         students = []
-        with open('before.csv') as file:
+        with open(sys.argv[1]) as file:
             reader = csv.DictReader(file)
             for row in reader:
                 students.append(row)
