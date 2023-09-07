@@ -12,10 +12,10 @@ else:
         with open(sys.argv[1]) as file:
             for line in file:
                 line = line.lstrip().rstrip()
-                print(line)
                 if line.startswith("#"):
                     continue
-                elif line.startswith("\n"):
+                elif line.strip():
+                    print(line)
                     continue
                 else:
                     counter += 1
