@@ -12,7 +12,10 @@ else:
             reader = csv.DictReader(file)
             for row in reader:
                 students.append(row)
-
+        with open('after.csv') as after_file:
+            writer = csv.DictWriter(after_file, fieldnames=["first", "last", "house"])
+            writer.writerow()
+            for student in students
             print(students)
     except FileNotFoundError:
         sys.exit(f'Could not read {sys.argv[1]}')
