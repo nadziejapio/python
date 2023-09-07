@@ -1,5 +1,4 @@
 import sys
-import csv
 import PIL
 import os
 
@@ -19,6 +18,7 @@ elif in_ext_1 != in_ext_2:
     sys.exit("Input and output have different extensions")
 else:
     try:
-        
+        with open(sys.argv[1]) as file:
+
     except FileNotFoundError:
         sys.exit("Input does not exist")
