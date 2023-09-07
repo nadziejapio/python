@@ -14,8 +14,7 @@ else:
                 students.append(row)
         with open('after.csv') as after_file:
             writer = csv.DictWriter(after_file, fieldnames=["first", "last", "house"])
-            writer.writerow()
-            for student in students
-            print(students)
+            for student in students:
+                writer.writerow({"first": student['name'].split(",")[1].strip(), "last":student['name'].split(",")[0].strip(), "house": student['house']})
     except FileNotFoundError:
         sys.exit(f'Could not read {sys.argv[1]}')
