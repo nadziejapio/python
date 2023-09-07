@@ -14,7 +14,8 @@ else:
                 line = line.rstrip()
                 if line.lstrip().startswith("#"):
                     continue
-                elif line.lstrip().startswith(\n):
+                elif line.lstrip().startswith(""):
+                    print(line)
                     continue
                 else:
                     counter += 1
