@@ -14,7 +14,7 @@ else:
                 line = line.rstrip()
                 if line.lstrip().startswith("#"):
                     continue
-                elif line.lstrip().startswith(""):
+                elif line.startswith(" "):
                     print(line)
                     continue
                 else:
