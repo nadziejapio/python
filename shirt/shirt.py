@@ -1,5 +1,5 @@
 import sys
-import PIL
+from PIL import Image
 import os
 
 if len(sys.argv) < 3:
@@ -18,7 +18,6 @@ elif in_ext_1 != in_ext_2:
     sys.exit("Input and output have different extensions")
 else:
     try:
-        with open(sys.argv[1]) as file:
-            PIL.Image.open(file)
+        image = Image.open(sys.argv[1])
     except FileNotFoundError:
         sys.exit("Input does not exist")
