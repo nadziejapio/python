@@ -12,7 +12,7 @@ else:
             reader = csv.DictReader(file)
             for row in reader:
                 students.append(row)
-        with open('after.csv', "w") as after_file:
+        with open(sys.argv[2], "w") as after_file:
             writer = csv.DictWriter(after_file, fieldnames=["first", "last", "house"])
             writer.writeheader()
             for student in students:
