@@ -8,9 +8,17 @@ elif not sys.argv[1].endswith(".py"):
     sys.exit("Not a Python file")
 else:
     try:
+        counter = 0
         with open(sys.argv[1]) as file:
             for line in file:
                 line = line.rstrip()
-                print(line)
+                if line.lstrip().startswith("#"):
+                    continue
+                elif line.lstrip().startswith(\n):
+                    continue
+                else:
+                    counter += 1
+        print(counter)
+        sys.exit()
     except FileNotFoundError:
         sys.exit("File not found")
