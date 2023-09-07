@@ -10,8 +10,11 @@ elif not sys.argv[1].endswith(".csv"):
     sys.exit("Not a CSV file")
 else:
     try:
+        menu = []
         with open(sys.argv[1]) as csvfile:
             reader = csv.reader(csvfile)
-
+            for row in reader:
+                menu.append(row)
+        print(tabulate(menu, headers="firstrow"))
     except FileNotFoundError:
         sys.exit("File does not exist")
