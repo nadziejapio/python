@@ -1,5 +1,6 @@
 import sys
 import csv
+from tabulate import tabulate
 
 if len(sys.argv) < 2:
     sys.exit("Too few command-line arguments")
