@@ -5,5 +5,6 @@ if len(sys.argv) < 2:
 elif len(sys.argv) > 2:
     sys.exit("Too many command-lines arguments")
 else:
-    if sys.argv[1]
+    if not sys.argv[1].endswith(".py"):
+        sys.exit("Not a Python file")
 i = sys.argv
