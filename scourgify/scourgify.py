@@ -12,7 +12,7 @@ else:
             reader = csv.DictReader(file)
             for row in reader:
                 students.append(row)
-        with open('after.csv') as after_file:
+        with open('after.csv', "a") as after_file:
             writer = csv.DictWriter(after_file, fieldnames=["first", "last", "house"])
             for student in students:
                 writer.writerow({"first": student['name'].split(",")[1].strip(), "last":student['name'].split(",")[0].strip(), "house": student['house']})
