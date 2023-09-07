@@ -15,6 +15,6 @@ else:
             reader = csv.reader(csvfile)
             for row in reader:
                 menu.append(row)
-        print(tabulate(menu, headers="firstrow"))
+        print(tabulate(menu, headers="firstrow", tablefmt="grid"))
     except FileNotFoundError:
         sys.exit("File does not exist")
