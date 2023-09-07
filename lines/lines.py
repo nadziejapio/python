@@ -11,11 +11,11 @@ else:
         counter = 0
         with open(sys.argv[1]) as file:
             for line in file:
-                line = line.rstrip()
-                if line.lstrip().startswith("#"):
+                line = line.lstrip().rstrip()
+                print(line)
+                if line.startswith("#"):
                     continue
-                elif line.startswith(" "):
-                    print(line)
+                elif line.startswith("\n"):
                     continue
                 else:
                     counter += 1
