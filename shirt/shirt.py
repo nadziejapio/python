@@ -18,10 +18,9 @@ elif in_ext_1 != in_ext_2:
     sys.exit("Input and output have different extensions")
 else:
     try:
-        for arg in sys.argv[1:]:
-            image = Image.open(arg)
-            ImageOps.fit(image)
-            images.append(image)
+        image = Image.open(arg)
+        ImageOps.fit(image)
+        images.append(image)
 
     except FileNotFoundError:
         sys.exit("Input does not exist")
