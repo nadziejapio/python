@@ -1,5 +1,5 @@
 import sys
-from PIL import Image
+from PIL import Image, ImageOps
 import os
 
 if len(sys.argv) < 3:
@@ -20,6 +20,7 @@ else:
     try:
         for arg in sys.argv[1:]:
             image = Image.open(arg)
+            ImageOps.fit(image)
             images.append(image)
 
     except FileNotFoundError:
