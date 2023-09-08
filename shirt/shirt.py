@@ -21,7 +21,7 @@ else:
         image = Image.open(sys.argv[1])
         shirt = Image.open('shirt.png')
         size = shirt.size
-        print(size)
+        
         #ImageOps.fit(image, )
 
     except FileNotFoundError:
