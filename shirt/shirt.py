@@ -21,8 +21,7 @@ else:
         image = Image.open(sys.argv[1])
         shirt = Image.open('shirt.png')
         size = shirt.size
-        
-        #ImageOps.fit(image, )
+        image = ImageOps.fit(image, )
 
     except FileNotFoundError:
         sys.exit("Input does not exist")
