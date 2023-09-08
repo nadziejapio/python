@@ -22,7 +22,7 @@ else:
         shirt = Image.open('shirt.png')
         size = shirt.size
         image = ImageOps.fit(image, size)
-        after = image.paste(shirt, shirt)
+        image.paste(shirt, shirt)
         image.save(sys.argv[2])
 
     except FileNotFoundError:
