@@ -18,8 +18,9 @@ elif in_ext_1 != in_ext_2:
     sys.exit("Input and output have different extensions")
 else:
     try:
-        image = Image.open(arg)
-        ImageOps.fit(image)
+        image = Image.open(sys.argv[1])
+        size = image.size
+        ImageOps.fit(image, )
         images.append(image)
 
     except FileNotFoundError:
