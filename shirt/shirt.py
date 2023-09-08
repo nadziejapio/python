@@ -8,7 +8,7 @@ elif len(sys.argv) > 3:
     sys.exit("Too many command-lines arguments")
 
 in_ext_1 = os.path.splitext(sys.argv[1])[1].lower()
-in_ext_2 = os.path.splitext(sys.argv[1])[1].lower()
+in_ext_2 = os.path.splitext(sys.argv[2])[1].lower()
 
 if in_ext_1 not in [".jpg", ".jpeg", ".png"]:
     sys.exit("Invalid input")
