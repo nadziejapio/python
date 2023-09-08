@@ -19,9 +19,10 @@ elif in_ext_1 != in_ext_2:
 else:
     try:
         image = Image.open(sys.argv[1])
-        size = image.size
-        ImageOps.fit(image, )
-        images.append(image)
+        shirt = Image.open('shirt.png')
+        size = shirt.size
+        print(size)
+        #ImageOps.fit(image, )
 
     except FileNotFoundError:
         sys.exit("Input does not exist")
