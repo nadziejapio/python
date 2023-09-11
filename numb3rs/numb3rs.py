@@ -12,6 +12,7 @@ def validate(ip):
             if int(i) > 255:
                 return False
         return True
-
+    else:
+        return False
 if __name__ == "__main__":
     main()
