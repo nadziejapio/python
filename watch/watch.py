@@ -5,7 +5,7 @@ def main():
     print(parse(input("HTML: ")))
 
 def parse(s):
-    if matches := re.search(r".+youtube.+", s):
+    if matches := re.search(r".+(?::\\youtube.+", s):
         return "ok"
     #f"https://youtu.be/{matches.group(1)}"
 
