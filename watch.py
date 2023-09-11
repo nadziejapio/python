@@ -7,7 +7,8 @@ def main():
 
 
 def parse(s):
-    ...
+    if matches := re.search("^$"):
+        
 
 
 ...
