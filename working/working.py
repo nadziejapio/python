@@ -7,14 +7,15 @@ def main():
 
 
 def convert(s):
-    if matches:= re.search(r"(\d\d?):(\d\d) [AP]M to (\d\d?):(\d\d) [AP]M", s):
-        h1, m1, h2, m2 = matches.groups()
-        if not 0 <= int(m1) < 60:
-            raise ValueError
-        if not 0 <= int(m2) < 60:
-            raise ValueError
+    if matches:= re.search(r"(\d\d?)(:(\d\d))? [AP]M to (\d\d?)(:(\d\d))? [AP]M", s):
+         ans = matches.groups()
+    #h1, m1, h2, m2
+    #    if not 0 <= int(m1) < 60:
+    #        raise ValueError
+    #    if not 0 <= int(m2) < 60:
+    #        raise ValueError
 
-        return h1, m1, h2, m2
+         return ans[1]
 
 if __name__ == "__main__":
     main()
