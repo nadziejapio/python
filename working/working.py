@@ -21,8 +21,12 @@ def convert(s):
             m2 = "00"
 
         if a1 == "PM":
-            h1 = int(h1) + 12
+            if h1 == "12":
+                h1 = 00
+            else:
+                h1 = int(h1) + 12
         if a2 == "PM":
+            if h2 ==
             h2 = int(h2) + 12
 
         return f"{int(h1):02}:{m1} to {int(h2):02}:{m2}"
