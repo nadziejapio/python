@@ -25,7 +25,7 @@ def convert(s):
         if a2 == "PM":
             h2 = int(h2) + 12
 
-        return f"{h1:02}:{m1} to {h2:02}:{m2}"
+        return f"{int(h1):02}:{m1} to {int(h2):02}:{m2}"
 
 if __name__ == "__main__":
     main()
