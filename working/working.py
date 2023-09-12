@@ -19,6 +19,11 @@ def convert(s):
                 raise ValueError
         else:
             m2 = "00"
+
+        if a1 == "PM":
+            int(h1) += 12
+        if a2 == "PM":
+            int(h2) += 12
         return h1, m1, a1, h2, m2, a2
 
 if __name__ == "__main__":
