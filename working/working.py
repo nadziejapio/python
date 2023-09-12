@@ -21,10 +21,11 @@ def convert(s):
             m2 = "00"
 
         if a1 == "PM":
-            int(h1) += 12
+            h1 = int(h1) + 12
         if a2 == "PM":
-            int(h2) += 12
-        return h1, m1, a1, h2, m2, a2
+            h2 = int(h2) + 12
+
+        return f"{h1}:{m1} to {h2}:{m2}"
 
 if __name__ == "__main__":
     main()
