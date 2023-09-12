@@ -12,13 +12,13 @@ def convert(s):
         if m1:
             if not 0 <= int(m1) < 60:
                 raise ValueError
-            else:
-                m1 = "00"
+        else:
+            m1 = "00"
         if m2:
             if not 0 <= int(m2) < 60:
                 raise ValueError
-            else:
-                m2 = "00"
+        else:
+            m2 = "00"
         return h1, m1, h2, m2
 
 if __name__ == "__main__":
