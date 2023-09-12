@@ -15,7 +15,7 @@ def convert(s):
     #    if not 0 <= int(m2) < 60:
     #        raise ValueError
 
-         return ans[1]
+         return ans
 
 if __name__ == "__main__":
     main()
