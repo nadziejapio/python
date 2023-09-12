@@ -7,8 +7,8 @@ def main():
 
 
 def count(s):
-    ans = re.findall(r"\bum\b", s)
-    return count(ans)
+    ans = re.findall(r"\b[Uu]m\b", s)
+    return len(ans)
 
 if __name__ == "__main__":
     main()
