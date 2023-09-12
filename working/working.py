@@ -7,7 +7,7 @@ def main():
 
 
 def convert(s):
-    if matches:= re.search(r"(\d\d?)(:(\d\d))? [AP]M to (\d\d?)(:(\d\d))? [AP]M", s):
+    if matches:= re.search(r"(\d\d?)(?::(\d\d))? [AP]M to (\d\d?)(?::(\d\d))? [AP]M", s):
          ans = matches.groups()
     #h1, m1, h2, m2
     #    if not 0 <= int(m1) < 60:
