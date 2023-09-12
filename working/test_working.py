@@ -12,3 +12,7 @@ def test_convert_minutes():
 
 def test_convert_pm():
     assert convert("9:30 AM to 5:30 PM") == "09:30 to 17:30"
+
+def test_convert_to():
+    with pytest.raises(ValueError):
+        convert("8:00 AM - 10:00 AM")
