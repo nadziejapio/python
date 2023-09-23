@@ -11,7 +11,7 @@ def main():
     except Exception:
         sys.exit("Invalid date")
     mins = subs.days * 24 * 60
-    print(p.number_to_words(mins, andword="") + " minutes")
+    print(p.number_to_words(mins, andword="").title() + " minutes")
 
 def get_date(s):
     return date.fromisoformat(s)
