@@ -1,5 +1,8 @@
 from datetime import date
 from os import sys
+import inflect
+
+p = inflect.engine()
 
 def main():
     today = date.today()
@@ -7,7 +10,7 @@ def main():
         subs = today - get_date(input("Date of Birth: "))
     except Exception:
         sys.exit("Invalid date")
-    print(subs)
+    print(subs.days)
 
 def get_date(s):
     return date.fromisoformat(s)
