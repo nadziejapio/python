@@ -10,8 +10,8 @@ def main():
         subs = today - get_date(input("Date of Birth: "))
     except Exception:
         sys.exit("Invalid date")
-    
-    print(subs.days)
+    mins = subs.days * 24 * 60
+    print(p.number_to_words(mins, andword="") + " minutes")
 
 def get_date(s):
     return date.fromisoformat(s)
