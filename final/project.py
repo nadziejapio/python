@@ -14,7 +14,7 @@ option.add_argument('--disable-dev-shm-usage')
 option.add_argument('--verbose')
 option.add_argument('--log-level=0')
 
-driver = webdriver.firefox(options = option)
+driver = webdriver.Firefox(options = option)
 
 class player:
     def __init__(self, name, id):
