@@ -102,7 +102,7 @@ def login_to_facebook(email, password):
     login_button.click()
 
     time.sleep(5)  # Wait for login
-    return logged
+    return 'logged in'
 
 
 def send_facebook_message(message):
