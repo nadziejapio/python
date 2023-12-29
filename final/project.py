@@ -86,23 +86,23 @@ def get_info(playerId, playerName, gameId):
         get_info(playerId, playerName, gameId)
 
 def login_to_facebook(email, password):
-    try:
-        driver.get("https://www.facebook.com/")
-        time.sleep(2)
+    driver.get("https://www.facebook.com/")
+    time.sleep(2)
 
-        cookies = driver.find_element(By.CSS_SELECTOR, "button[data-cookiebanner='accept_button']")
-        cookies.click()
+    cookies = driver.find_element(By.CSS_SELECTOR, "button[data-cookiebanner='accept_button']")
+    cookies.click()
 
-        email_box = driver.find_element(By.ID, "email")
-        email_box.send_keys(email)
+    email_box = driver.find_element(By.ID, "email")
+    email_box.send_keys(email)
 
-        password_box = driver.find_element(By.ID, "pass")
-        password_box.send_keys(password)
+    password_box = driver.find_element(By.ID, "pass")
+    password_box.send_keys(password)
 
-        login_button = driver.find_element(By.NAME, "login")
-        login_button.click()
+    login_button = driver.find_element(By.NAME, "login")
+    login_button.click()
 
-        time.sleep(5)  # Wait for login
+    time.sleep(5)  # Wait for login
+    return logged
 
 
 def send_facebook_message(message):
