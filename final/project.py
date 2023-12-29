@@ -1,11 +1,16 @@
 import time
 import config
 import requests
+import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
+chromedriver.install()
+
+service = Service
 option = Options()
 option.add_argument('--disable-notifications')
 option.add_argument('--headless')
