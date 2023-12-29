@@ -7,7 +7,7 @@ def test_load_player():
 def test_login_to_facebook():
     with pytest.raises(Exception):
         project.login_to_facebook('test', 'test')
-    assert project.login_to_facebook('test', 'test') == 'something went wrong with logging in'
+    assert project.login_to_facebook('jpgprojekty@gmail.com', 'thisIsPassword1') == 'something went wrong with logging in'
 
 def test_check_player_status():
     assert project.check_player_status() == 'checked'
