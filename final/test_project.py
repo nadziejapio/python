@@ -1,4 +1,5 @@
 import project
 import pytest
 
-def test_load_player()
+def test_load_player():
+    assert 
