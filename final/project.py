@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
-chromedriver.install()
+chromedriver_autoinstaller.install()
 driver = webdriver.Chrome(service=service)
 
 
