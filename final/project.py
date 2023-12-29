@@ -7,10 +7,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 chromedriver.install()
-service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
 
