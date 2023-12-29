@@ -106,8 +106,8 @@ def login_to_facebook(email, password):
         time.sleep(5)  # Wait for login
         return None
 
-    except (Exception):
-        return 'something went wrong with logging in'
+    except Exception as e:
+        raise Exception('Something went wrong with logging in')
 
 def send_facebook_message(message):
     driver.get(config.threadUrl)
