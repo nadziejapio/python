@@ -50,6 +50,7 @@ def check_player_status():
             if p.current_game != None:
                 get_info(p.id, p.name, p.current_game)
                 p.current_game = None
+    return 'checked'
 
 def get_info(playerId, playerName, gameId):
     url = f'https://europe.api.riotgames.com/lol/match/v5/matches/EUN1_{gameId}'
