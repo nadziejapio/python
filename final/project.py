@@ -88,6 +88,7 @@ def get_info(playerId, playerName, gameId):
 def login_to_facebook(email, password):
     driver.get("https://www.facebook.com/")
     time.sleep(2)
+    return
 
     cookies = driver.find_element(By.CSS_SELECTOR, "button[data-cookiebanner='accept_button']")
     cookies.click()
