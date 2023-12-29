@@ -2,4 +2,5 @@ import project
 import pytest
 
 def test_load_player():
-    assert 
+    assert project.load_player('Nadzieja') == 'something is wrong'
+    
