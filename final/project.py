@@ -29,7 +29,7 @@ def load_player(players_Name):
     if response.status_code == 200:
         players.append(player(players_Name, response.json()['id']))
         return 'ok'
-    else
+    else:
         return 'something is wrong'
 
 
