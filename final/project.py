@@ -8,6 +8,9 @@ from selenium.webdriver.chrome.options import Options
 
 option = Options()
 option.add_argument('--disable-notifications')
+option.add_argument('--headless')
+option.add_argument('--no-sandbox')
+option.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(options = option)
 
 class player:
