@@ -28,9 +28,9 @@ def load_player(players_Name):
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         players.append(player(players_Name, response.json()['id']))
-        return 'ok'
+        return None
     else:
-        return 'something is wrong'
+        raise Exception('Something is wrong')
 
 
 def check_player_status():
