@@ -11,8 +11,6 @@ from selenium.webdriver.chrome.service import Service
 chromedriver_autoinstaller.install()
 driver = webdriver.Chrome(service=service)
 
-
-service = Service
 option = Options()
 option.add_argument('--disable-notifications')
 option.add_argument('--headless')
