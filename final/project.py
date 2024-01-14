@@ -19,10 +19,10 @@ def get_nicknames():
         is_last = False
         while is_last == False:
             check = input('Do you want to add more?(y/n) ')
-            if check == y:
+            if check == 'y':
                 is_last = True
-                
-            return nicks
+            elif check == 'n':
+                return nicks
 
 players = []
 
