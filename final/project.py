@@ -16,7 +16,8 @@ def get_nicknames():
     nicks = []
     while is_ended == False:
         nicks.append(input('Enter nickname: '))
-        check = input('Do you want to add more (y/n)')
+        while input('Do you want to add more (y/n)') != 'n':
+            
         if check == 'y':
             break
         elif check == 'n':
