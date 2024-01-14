@@ -90,43 +90,10 @@ def get_info(playerId, playerName, gameId):
         time.sleep(30)
         get_info(playerId, playerName, gameId)
 
-def login_to_facebook(email, password):
-    try:
-        driver.get("https://www.facebook.com/")
-        time.sleep(2)
-
-        cookies = driver.find_element(By.CSS_SELECTOR, "button[data-cookiebanner='accept_button']")
-        cookies.click()
-
-        email_box = driver.find_element(By.ID, "email")
-        email_box.send_keys(email)
-
-        password_box = driver.find_element(By.ID, "pass")
-        password_box.send_keys(password)
-
-        login_button = driver.find_element(By.NAME, "login")
-        login_button.click()
-
-        time.sleep(5)  # Wait for login
-        return None
-
-    except Exception as e:
-        raise Exception('Something went wrong with logging in')
-
-def send_facebook_message(message):
-    driver.get(config.threadUrl)
-    time.sleep(10)
-    message_box = driver.find_element(By.CSS_SELECTOR, "div[role='textbox']")
-    message_box.click()
-    message_box.send_keys(message)
-    message_box.send_keys(Keys.RETURN)
-
 def main():
     nicks = get_nicknames()
     for n in nicks:
         load_player(n)
-    login_to_facebook(config.email, config.password )
-    print('logged in')
     while True:
         check_player_status()
         time.sleep(5)
