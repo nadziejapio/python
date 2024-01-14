@@ -20,6 +20,7 @@ def get_nicknames():
         while is_last == False:
             check = input('Do you want to add more?(y/n) ')
             if check == y:
+                is_last = True
                 
             return nicks
 
