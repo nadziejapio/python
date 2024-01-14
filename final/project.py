@@ -21,6 +21,7 @@ while is_ended == False:
             return
         elif check == 'n':
             is_ended == True
+            return
 
 players = []
 
