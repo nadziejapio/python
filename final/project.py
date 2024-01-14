@@ -122,6 +122,7 @@ def send_facebook_message(message):
     message_box.send_keys(Keys.RETURN)
 
 def main():
+    nicks = get_nicks()
     for n in nicks:
         load_player(n)
     login_to_facebook(config.email, config.password )
