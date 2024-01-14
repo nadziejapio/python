@@ -14,11 +14,11 @@ headers = {'X-Riot-Token': config.RIOT_API_KEY}
 def get_nicknames():
     is_ended = False
     nicks = []
-    is_last = False
     while is_ended == False:
         nicks.append(input('Enter nickname: '))
+        is_last = False
         while is_last == False:
-            
+            if input('Do you want to add more?(y/n) ') 
             return nicks
 
 players = []
