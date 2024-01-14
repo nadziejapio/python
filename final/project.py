@@ -11,6 +11,8 @@ class player:
 headers = {'X-Riot-Token': config.RIOT_API_KEY}
 
 #enter nicknames here
+is_ended = false
+while is_ended == false
 nicks = input('Enter nickname: ')
 
 players = []
