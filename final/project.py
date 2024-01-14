@@ -16,13 +16,12 @@ def get_nicknames():
     nicks = []
     while is_ended == False:
         nicks.append(input('Enter nickname: '))
-            check = input('Do you want to add more (y/n)')
-            if check == 'y':
-                break
-            elif check == 'n':
-                is_ended == True
-                break
-    return nicks
+        check = input('Do you want to add more (y/n)')
+        if check == 'y':
+            break
+        elif check == 'n':
+            is_ended == True
+            return nicks
 
 players = []
 
