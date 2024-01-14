@@ -2,19 +2,6 @@ import time
 import config
 import requests
 
-chromedriver_autoinstaller.install()
-driver = webdriver.Chrome(service=service)
-
-option = Options()
-option.add_argument('--disable-notifications')
-option.add_argument('--headless')
-option.add_argument('--no-sandbox')
-option.add_argument('--disable-dev-shm-usage')
-option.add_argument('--verbose')
-option.add_argument('--log-level=0')
-
-driver = webdriver.Chrome(options = option)
-
 class player:
     def __init__(self, name, id):
         self.id = id
