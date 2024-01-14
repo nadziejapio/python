@@ -14,7 +14,8 @@ headers = {'X-Riot-Token': config.RIOT_API_KEY}
 is_ended = false
 nicks = []
 while is_ended == false:
-    nicks = input('Enter nickname: ')
+    nicks.append(input('Enter nickname: '))
+    is_ended
 
 players = []
 
