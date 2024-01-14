@@ -10,7 +10,6 @@ class player:
 
 headers = {'X-Riot-Token': config.RIOT_API_KEY}
 
-#enter nicknames here
 def get_nicknames():
     is_ended = False
     nicks = []
