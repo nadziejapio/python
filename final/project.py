@@ -22,6 +22,7 @@ def get_nicknames():
             if check == 'y':
                 is_last = True
             elif check == 'n':
+                print(nicks)
                 return nicks
 
 players = []
