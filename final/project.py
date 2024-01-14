@@ -11,11 +11,16 @@ class player:
 headers = {'X-Riot-Token': config.RIOT_API_KEY}
 
 #enter nicknames here
-is_ended = false
+is_ended = False
 nicks = []
-while is_ended == false:
+while is_ended == False:
     nicks.append(input('Enter nickname: '))
-    is_ended
+    while True:
+        check = input('Do you want to add more (y/n)')
+        if check == 'y':
+            return
+        elif check == 'n':
+            is_ended == True
 
 players = []
 
