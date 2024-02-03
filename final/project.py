@@ -44,7 +44,7 @@ def check_player_status():
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             if p.current_game == None:
-                plyer.notification.notify(title='LoL', message=f'{p.playersName} is playing {p.current_game}', app_name='Lol_Checker')
+                plyer.notification.notify(title='LoL', message=f'{p.name} is playing {p.current_game}', app_name='Lol_Checker')
             p.current_game = response.json()['gameId']
         elif response.status_code == 404:
             if p.current_game != None:
