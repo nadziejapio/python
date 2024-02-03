@@ -1,8 +1,7 @@
 import time
 import config
 import requests
-from plyer import notification
-
+import plyer
 class player:
     def __init__(self, name, id):
         self.id = id
@@ -32,7 +31,7 @@ def load_player(players_Name):
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         players.append(player(players_Name, response.json()['id']))
-        notification(title='LoL', message=f'{players_Name} is loaded', app_name='Lol_Checker')
+        plyer.notification(title='LoL', message=f'{players_Name} is loaded', app_name='Lol_Checker')
         return None
     else:
         raise Exception('Something is wrong')
