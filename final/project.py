@@ -31,7 +31,6 @@ def load_player(players_Name):
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         players.append(player(players_Name, response.json()['id']))
-        # plyer.notification.notify(title='LoL', message=f'{players_Name} is loaded', app_name='Lol_Checker')
         return None
     else:
         raise Exception('Something is wrong')
@@ -45,9 +44,7 @@ def check_player_status():
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             if p.current_game == None:
-                send_facebook_message(f'Good luck {p.name}!')
-                print('Someone is playing')
-                print(p.current_game)
+                plyer.notification.notify(title='LoL', message=f'{p.playersName} is playing {p.current_game}', app_name='Lol_Checker')
             p.current_game = response.json()['gameId']
         elif response.status_code == 404:
             if p.current_game != None:
