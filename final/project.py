@@ -30,6 +30,7 @@ players = []
 def load_player(players_Name):
     url = f'https://eun1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{players_Name}'
     response = requests.get(url, headers=headers)
+    print(response)
     if response.status_code == 200:
         players.append(player(players_Name, response.json()['id']))
         notification(title='LoL', message=f'{players_Name} is loaded', app_name='Lol_Checker')
