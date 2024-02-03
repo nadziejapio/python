@@ -70,10 +70,10 @@ def get_info(playerId, playerName, gameId):
                 d = p['deaths']
                 a = p['assists']
                 if p['win'] == True:
-                    send_facebook_message(f'Gratulacje {playerName} ({tier} {rank} - {lp}LP)! Dobra robota :) {k}/{d}/{a} - {champ}')
+                    plyer.notification.notify(title='LoL', message=f'{playerName} won! ({tier} {rank} - {lp}LP)! {k}/{d}/{a} - {champ}', app_name='Lol_Checker')
                     print('win msg sent')
                 elif p['win'] == False:
-                    send_facebook_message(f'{playerName}, następnym razem Ci się uda!')
+                    plyer.notification.notify(title='LoL', message=f'{playerName} lost! ({tier} {rank} - {lp}LP)! {k}/{d}/{a} - {champ}', app_name='Lol_Checker')
                     print('lost msg sent')
                 for p in players:
                     if p.id == playerId:
