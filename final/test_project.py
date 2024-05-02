@@ -41,6 +41,6 @@ def test_get_info():
             'leaguePoints': 90
         }])
         player = project.player('test#test', 'test_puuid')
-        bot_3.players.append(player)
-        bot_3.get_info('test_puuid', 'test#test', 'test_gameId')
-        assert bot_3.players[0].current_game == 'justEnded'
+        project.players.append(player)
+        project.get_info('test_puuid', 'test#test', 'test_gameId')
+        assert project.players[0].current_game == 'justEnded'
