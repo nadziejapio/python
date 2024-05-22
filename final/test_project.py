@@ -3,6 +3,7 @@ import requests_mock
 import project
 
 def test_load_player():
+    assert 
     with requests_mock.Mocker() as m:
         m.get('https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/test/test', json={'puuid': 'test_puuid'})
         project.load_player('test#test')
