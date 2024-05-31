@@ -1,4 +1,3 @@
-dbus-python==1.2.16
-plyer==2.0.0
-libnotify-bin
+plyer
 requests
+pyobjus
